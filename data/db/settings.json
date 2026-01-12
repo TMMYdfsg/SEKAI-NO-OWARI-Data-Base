@@ -1,0 +1,12 @@
+{
+    "theme": "default",
+    "language": "ja",
+    "autoPlayBGM": false,
+    "crossfadeDuration": 2,
+    "lightweightMode": false,
+    "showLayerOfficial": true,
+    "showLayerBehindTheScenes": true,
+    "showLayerPersonalMemo": true,
+    "historySort": "desc",
+    "playCountMinDuration": 30
+}

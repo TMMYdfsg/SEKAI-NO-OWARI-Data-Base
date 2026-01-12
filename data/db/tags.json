@@ -1,0 +1,129 @@
+[
+    {
+        "id": "tag-0",
+        "name": "live",
+        "description": "ライブイベント",
+        "usageCount": 12,
+        "applicableTo": [
+            "history",
+            "song",
+            "discography"
+        ],
+        "isAutoTag": true,
+        "createdAt": "2026-01-09T08:00:00.000Z",
+        "updatedAt": "2026-01-09T08:00:00.000Z"
+    },
+    {
+        "id": "tag-1",
+        "name": "release",
+        "description": "リリース関連",
+        "usageCount": 10,
+        "applicableTo": [
+            "history",
+            "song",
+            "discography"
+        ],
+        "isAutoTag": true,
+        "createdAt": "2026-01-09T08:00:00.000Z",
+        "updatedAt": "2026-01-09T08:00:00.000Z"
+    },
+    {
+        "id": "tag-2",
+        "name": "milestone",
+        "description": "節目となる出来事",
+        "usageCount": 3,
+        "applicableTo": [
+            "history"
+        ],
+        "isAutoTag": true,
+        "createdAt": "2026-01-09T08:00:00.000Z",
+        "updatedAt": "2026-01-09T08:00:00.000Z"
+    },
+    {
+        "id": "tag-3",
+        "name": "formation",
+        "description": "結成・設立関連",
+        "usageCount": 2,
+        "applicableTo": [
+            "history"
+        ],
+        "isAutoTag": true,
+        "createdAt": "2026-01-09T08:00:00.000Z",
+        "updatedAt": "2026-01-09T08:00:00.000Z"
+    },
+    {
+        "id": "tag-4",
+        "name": "album",
+        "description": "アルバム",
+        "usageCount": 5,
+        "applicableTo": [
+            "history",
+            "discography"
+        ],
+        "isAutoTag": true,
+        "createdAt": "2026-01-09T08:00:00.000Z",
+        "updatedAt": "2026-01-09T08:00:00.000Z"
+    },
+    {
+        "id": "tag-5",
+        "name": "single",
+        "description": "シングル",
+        "usageCount": 2,
+        "applicableTo": [
+            "history",
+            "discography"
+        ],
+        "isAutoTag": true,
+        "createdAt": "2026-01-09T08:00:00.000Z",
+        "updatedAt": "2026-01-09T08:00:00.000Z"
+    },
+    {
+        "id": "tag-6",
+        "name": "video",
+        "description": "映像作品",
+        "usageCount": 0,
+        "applicableTo": [
+            "history",
+            "discography"
+        ],
+        "isAutoTag": true,
+        "createdAt": "2026-01-09T08:00:00.000Z",
+        "updatedAt": "2026-01-09T08:00:00.000Z"
+    },
+    {
+        "id": "tag-7",
+        "name": "dome",
+        "description": "ドーム公演",
+        "usageCount": 3,
+        "applicableTo": [
+            "history"
+        ],
+        "isAutoTag": false,
+        "createdAt": "2026-01-09T08:00:00.000Z",
+        "updatedAt": "2026-01-09T08:00:00.000Z"
+    },
+    {
+        "id": "tag-8",
+        "name": "arena",
+        "description": "アリーナ公演",
+        "usageCount": 1,
+        "applicableTo": [
+            "history"
+        ],
+        "isAutoTag": false,
+        "createdAt": "2026-01-09T08:00:00.000Z",
+        "updatedAt": "2026-01-09T08:00:00.000Z"
+    },
+    {
+        "id": "tag-9",
+        "name": "outdoor",
+        "description": "野外公演",
+        "usageCount": 2,
+        "applicableTo": [
+            "history"
+        ],
+        "isAutoTag": false,
+        "createdAt": "2026-01-09T08:00:00.000Z",
+        "updatedAt": "2026-01-09T08:00:00.000Z"
+    }
+]

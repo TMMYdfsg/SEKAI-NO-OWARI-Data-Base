@@ -1,0 +1,62 @@
+[
+    {
+        "id": "fukase",
+        "name": "Fukase",
+        "role": "Vocal / Concept Creator",
+        "instruments": [
+            "Vocal",
+            "Guitar",
+            "Bass"
+        ],
+        "color": "#E60033",
+        "bio": "SEKAI NO OWARIのボーカルかつ楽曲の多くの作詞・作曲を手がける。独特な歌声と世界観を持つ。",
+        "image": "/images/members/fukase.jpg",
+        "createdAt": "2026-01-09T08:00:00.000Z",
+        "updatedAt": "2026-01-09T08:00:00.000Z"
+    },
+    {
+        "id": "nakajin",
+        "name": "Nakajin",
+        "role": "Leader / Sound Produce",
+        "instruments": [
+            "Guitar",
+            "Sound Programming",
+            "Percussion",
+            "Chorus"
+        ],
+        "color": "#F39800",
+        "bio": "リーダーであり、バンドのサウンドプロデュースを担当。多くの楽器を演奏するマルチプレイヤー。",
+        "image": "/images/members/nakajin.jpg",
+        "createdAt": "2026-01-09T08:00:00.000Z",
+        "updatedAt": "2026-01-09T08:00:00.000Z"
+    },
+    {
+        "id": "saori",
+        "name": "Saori",
+        "role": "Piano / Show Produce",
+        "instruments": [
+            "Piano",
+            "Accordion",
+            "Keyboards"
+        ],
+        "color": "#E4007F",
+        "bio": "ピアノ演奏に加え、ライブの演出も手がける。小説家としても活動。",
+        "image": "/images/members/saori.jpg",
+        "createdAt": "2026-01-09T08:00:00.000Z",
+        "updatedAt": "2026-01-09T08:00:00.000Z"
+    },
+    {
+        "id": "djlove",
+        "name": "DJ LOVE",
+        "role": "DJ / Sound Select",
+        "instruments": [
+            "DJ Controller",
+            "Manipulator"
+        ],
+        "color": "#00A0E9",
+        "bio": "ピエロのマスクがトレードマーク。サウンドの選択やお笑い担当（？）としてバンドを支える。",
+        "image": "/images/members/djlove.jpg",
+        "createdAt": "2026-01-09T08:00:00.000Z",
+        "updatedAt": "2026-01-09T08:00:00.000Z"
+    }
+]
