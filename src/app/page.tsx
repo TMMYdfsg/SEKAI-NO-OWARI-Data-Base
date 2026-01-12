@@ -2,15 +2,17 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ChevronRight, RefreshCw, Calendar as CalendarIcon, Lightbulb, Trophy, Medal, Settings, Eye, EyeOff, GripVertical } from "lucide-react";
+import { ChevronRight, RefreshCw, Calendar as CalendarIcon, Lightbulb, Trophy, Medal, Settings, Eye, EyeOff, Music2, Play } from "lucide-react";
 import MediaPlayer from "@/components/MediaPlayer";
 import { getBadges, getUnlockedAchievements } from "@/lib/local-storage-data";
+import { usePlayer } from "@/contexts/PlayerContext";
 
 type MediaFile = {
   name: string;
   path: string;
   type: string;
   thumbnail: string | null;
+  category?: string;
 };
 
 type WidgetConfig = {
@@ -45,11 +47,13 @@ const trivias = [
 ];
 
 export default function Home() {
+  const { playSong } = usePlayer();
   const [mediaFiles, setMediaFiles] = useState<MediaFile[]>([]);
   const [randomTrivia, setRandomTrivia] = useState("");
   const [badges, setBadges] = useState<string[]>([]);
   const [achievementCount, setAchievementCount] = useState(0);
   const [showSettings, setShowSettings] = useState(false);
+  const [dailySong, setDailySong] = useState<MediaFile | null>(null);
 
   // Default widget configuration
   const defaultWidgets: WidgetConfig[] = [
@@ -66,7 +70,27 @@ export default function Home() {
     // Load Files
     fetch('/api/files')
       .then(res => res.json())
-      .then(data => setMediaFiles(data.files || []))
+      .then(data => {
+        const files = data.files || [];
+        setMediaFiles(files);
+
+        // Select Daily Song
+        if (files.length > 0) {
+          const todayStr = new Date().toDateString(); // e.g. "Sun Jan 12 2026"
+          let hash = 0;
+          for (let i = 0; i < todayStr.length; i++) {
+            hash = ((hash << 5) - hash) + todayStr.charCodeAt(i);
+            hash |= 0;
+          }
+          // Filter for audio files only
+          const audioFiles = files.filter((f: any) => !['mp4', 'mkv', 'mov'].includes(f.type));
+
+          if (audioFiles.length > 0) {
+            const index = Math.abs(hash) % audioFiles.length;
+            setDailySong(audioFiles[index]);
+          }
+        }
+      })
       .catch(err => console.error(err));
 
     // Load User Data
@@ -246,17 +270,68 @@ export default function Home() {
           </Link>
         )}
 
-        {/* Recommendation Widget (Placeholder) */}
+        {/* Recommendation Widget */}
         {sortedWidgets.find(w => w.id === 'recommendation')?.visible && (
-          <div className="bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-2xl p-6 text-center relative overflow-hidden">
+          <div className="bg-gradient-to-br from-indigo-900/40 to-black border border-white/10 rounded-2xl p-6 text-center relative overflow-hidden group">
+            {/* Background Image (Blurred) */}
+            {dailySong?.thumbnail && (
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-700"
+                style={{ backgroundImage: `url('/api/media?file=${encodeURIComponent(dailySong.thumbnail)}')` }}
+              />
+            )}
             <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"></div>
-            <h2 className="text-sm text-muted-foreground mb-4 relative z-10">Today's Recommendation</h2>
-            <div className="text-xl font-serif text-white tracking-widest relative z-10">
-              SCENT OF MEMORY
+
+            <div className="relative z-10 flex flex-col items-center">
+              <h2 className="text-xs font-bold text-primary tracking-widest uppercase mb-4 flex items-center gap-2">
+                <Lightbulb size={12} />
+                Today's Pick Up
+              </h2>
+
+              {dailySong ? (
+                <>
+                  <div className="w-32 h-32 rounded-lg shadow-2xl mb-4 overflow-hidden relative ring-1 ring-white/10 group-hover:scale-105 transition-transform duration-500">
+                    {dailySong.thumbnail ? (
+                      <img
+                        src={`/api/media?file=${encodeURIComponent(dailySong.thumbnail)}`}
+                        alt={dailySong.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-white/5 flex items-center justify-center">
+                        <Music2 size={32} className="text-white/20" />
+                      </div>
+                    )}
+
+                    <button
+                      onClick={() => playSong(dailySong)}
+                      className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    >
+                      <Play size={32} className="text-white fill-white" />
+                    </button>
+                  </div>
+
+                  <div className="text-lg font-serif text-white tracking-wide truncate w-full px-4">
+                    {dailySong.name.replace(/\.[^/.]+$/, "")}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1 truncate w-full px-4">
+                    {dailySong.category}
+                  </div>
+
+                  <button
+                    onClick={() => playSong(dailySong)}
+                    className="mt-6 px-6 py-2 bg-white/10 hover:bg-white/20 text-white text-xs rounded-full transition-colors flex items-center gap-2"
+                  >
+                    <Play size={12} fill="currentColor" />
+                    Play Now
+                  </button>
+                </>
+              ) : (
+                <div className="py-8 text-muted-foreground text-sm">
+                  Loading selection...
+                </div>
+              )}
             </div>
-            <Link href="/discography" className="mt-4 inline-block text-xs text-primary underline underline-offset-4 relative z-10">
-              View Details
-            </Link>
           </div>
         )}
 
