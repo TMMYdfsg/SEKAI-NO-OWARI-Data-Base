@@ -1,0 +1,2 @@
+src/components/auth/AuthStatus.tsx(36,17): error TS18048: 'res' is possibly 'undefined'.
+src/components/auth/AuthStatus.tsx(40,51): error TS18048: 'res' is possibly 'undefined'.

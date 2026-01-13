@@ -1,0 +1,33 @@
+src/app/gallery/page.tsx(489,25): error TS2322: Type 'string[]' is not assignable to type 'GalleryImage[]'.
+  Type 'string' is not assignable to type 'GalleryImage'.
+src/app/history/[id]/page.tsx(136,15): error TS2322: Type '({ name: string; path: string; type: string; category: string; thumbnail: string | undefined; } | null)[]' is not assignable to type 'Track[]'.
+  Type '{ name: string; path: string; type: string; category: string; thumbnail: string | undefined; } | null' is not assignable to type 'Track'.
+    Type 'null' is not assignable to type 'Track'.
+src/app/history/[id]/page.tsx(149,31): error TS2677: A type predicate's type must be assignable to its parameter's type.
+  Type 'Track' is not assignable to type '{ name: string; path: string; type: string; category: string; thumbnail: string | undefined; }'.
+    Types of property 'thumbnail' are incompatible.
+      Type 'string | null | undefined' is not assignable to type 'string | undefined'.
+        Type 'null' is not assignable to type 'string | undefined'.
+src/app/history/[id]/page.tsx(414,15): error TS2322: Type '({ name: string; path: string; type: string; category: string; thumbnail: string | undefined; } | null)[]' is not assignable to type 'Track[]'.
+  Type '{ name: string; path: string; type: string; category: string; thumbnail: string | undefined; } | null' is not assignable to type 'Track'.
+    Type 'null' is not assignable to type 'Track'.
+src/app/history/[id]/page.tsx(432,29): error TS2677: A type predicate's type must be assignable to its parameter's type.
+  Type 'Track' is not assignable to type '{ name: string; path: string; type: string; category: string; thumbnail: string | undefined; }'.
+    Types of property 'thumbnail' are incompatible.
+      Type 'string | null | undefined' is not assignable to type 'string | undefined'.
+        Type 'null' is not assignable to type 'string | undefined'.
+src/app/history/page.tsx(181,37): error TS2322: Type '{ type: "range"; min: number; max: number; value: number; onChange: (e: ChangeEvent<HTMLInputElement>) => void; orient: string; className: string; }' is not assignable to type 'DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>'.
+  Property 'orient' does not exist on type 'DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>'.
+src/app/members/page.tsx(4,10): error TS2305: Module '"@/lib/local-storage-data"' has no exported member 'getMemberImage'.
+src/app/members/page.tsx(247,33): error TS2322: Type '(imgData: string) => void' is not assignable to type 'MouseEventHandler<HTMLButtonElement>'.
+  Types of parameters 'imgData' and 'event' are incompatible.
+    Type 'MouseEvent<HTMLButtonElement, MouseEvent>' is not assignable to type 'string'.
+src/app/page.tsx(307,47): error TS2345: Argument of type 'MediaFile' is not assignable to parameter of type 'Track'.
+  Types of property 'category' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/app/page.tsx(322,45): error TS2345: Argument of type 'MediaFile' is not assignable to parameter of type 'Track'.
+  Types of property 'category' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/components/AudioVisualizer.tsx(29,26): error TS2554: Expected 1 arguments, but got 0.

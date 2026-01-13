@@ -15,7 +15,37 @@ const STORAGE_KEYS = {
     errorHidden: "sekaowa_error_hidden_unlocked",
     errorLogs: "sekaowa_error_logs",
     errorTracklist: "sekaowa_error_tracklist_unlocked",
+    playHistory: "sekaowa_play_history",
 } as const;
+
+// Play History
+export interface PlayHistoryEntry {
+    title: string;
+    path: string;
+    playedAt: number; // timestamp
+}
+
+export function getPlayHistory(): PlayHistoryEntry[] {
+    if (typeof window === 'undefined') return [];
+    try {
+        const saved = localStorage.getItem(STORAGE_KEYS.playHistory);
+        return saved ? JSON.parse(saved) : [];
+    } catch {
+        return [];
+    }
+}
+
+export function addPlayHistoryEntry(entry: Omit<PlayHistoryEntry, 'playedAt'>): void {
+    if (typeof window === 'undefined') return;
+    const history = getPlayHistory();
+    const newEntry: PlayHistoryEntry = {
+        ...entry,
+        playedAt: Date.now()
+    };
+    // Keep last 500 entries
+    const updated = [newEntry, ...history].slice(0, 500);
+    localStorage.setItem(STORAGE_KEYS.playHistory, JSON.stringify(updated));
+}
 
 // Favorites
 export function getFavorites(): string[] {
@@ -87,6 +117,37 @@ export function getHistoryEdits(): Record<string, HistoryEdit> {
 export function saveHistoryEdits(edits: Record<string, HistoryEdit>): void {
     if (typeof window === 'undefined') return;
     localStorage.setItem(STORAGE_KEYS.historyEdits, JSON.stringify(edits));
+    addAuditLog({ action: "UPDATE_HISTORY", details: "Updated history event data" });
+}
+
+// Audit Logs
+export interface AuditLogEntry {
+    timestamp: string;
+    action: string;
+    details?: string;
+}
+
+export function getAuditLogs(): AuditLogEntry[] {
+    if (typeof window === 'undefined') return [];
+    try {
+        const saved = localStorage.getItem("sekaowa_audit_logs");
+        return saved ? JSON.parse(saved) : [];
+    } catch {
+        return [];
+    }
+}
+
+export function addAuditLog(entry: Omit<AuditLogEntry, "timestamp">): void {
+    if (typeof window === 'undefined') return;
+    const current = getAuditLogs();
+    const newEntry: AuditLogEntry = {
+        timestamp: new Date().toISOString(),
+        ...entry
+    };
+    current.unshift(newEntry);
+    // Keep last 100 logs
+    const trimmed = current.slice(0, 100);
+    localStorage.setItem("sekaowa_audit_logs", JSON.stringify(trimmed));
 }
 
 export function updateHistoryEvent(eventKey: string, edit: Partial<HistoryEdit>): void {
@@ -119,6 +180,7 @@ export function getProfileEdits(): Record<string, ProfileEdit> {
 export function saveProfileEdits(edits: Record<string, ProfileEdit>): void {
     if (typeof window === 'undefined') return;
     localStorage.setItem(STORAGE_KEYS.profileEdits, JSON.stringify(edits));
+    addAuditLog({ action: "UPDATE_PROFILE", details: "Updated member profile" });
 }
 
 export function updateProfile(memberId: string, edit: Partial<ProfileEdit>): void {
@@ -151,6 +213,7 @@ export function getDiscographyEdits(): Record<string, DiscographyEdit> {
 export function saveDiscographyEdits(edits: Record<string, DiscographyEdit>): void {
     if (typeof window === 'undefined') return;
     localStorage.setItem(STORAGE_KEYS.discographyEdits, JSON.stringify(edits));
+    addAuditLog({ action: "UPDATE_DISCOGRAPHY", details: "Updated discography data" });
 }
 
 export function updateDiscography(albumId: string, edit: Partial<DiscographyEdit>): void {
@@ -184,23 +247,44 @@ export function revokeGallerySecretAccess(): void {
     localStorage.removeItem(STORAGE_KEYS.gallerySecret);
 }
 
-// Theme Color
-export type ThemeColor = "fukase" | "nakajin" | "saori" | "djlove" | "default" | "twilight" | "dragonNight" | "tree" | "nautilus";
+// Theme Color (Now Theme ID)
+export type ThemeColor = string; // Relaxed to support dynamic IDs
 
-const validThemes: ThemeColor[] = ["fukase", "nakajin", "saori", "djlove", "default", "twilight", "dragonNight", "tree", "nautilus"];
-
-export function getThemeColor(): ThemeColor {
+export function getThemeColor(): string {
     if (typeof window === 'undefined') return "default";
     const saved = localStorage.getItem(STORAGE_KEYS.themeColor);
-    if (saved && validThemes.includes(saved as ThemeColor)) {
-        return saved as ThemeColor;
-    }
-    return "default";
+    return saved || "default";
 }
 
-export function setThemeColor(color: ThemeColor): void {
+export function setThemeColor(color: string): void {
     if (typeof window === 'undefined') return;
     localStorage.setItem(STORAGE_KEYS.themeColor, color);
+}
+
+// Animation Settings
+export interface AnimationSettings {
+    enabled: boolean;
+    intensity: "low" | "normal" | "high";
+    duration: "short" | "normal";
+    customText?: string;
+    customDuration?: number; // in seconds
+}
+
+const STORAGE_KEY_ANIMATION = "sekaowa_animation_settings";
+
+export function getAnimationSettings(): AnimationSettings {
+    if (typeof window === 'undefined') return { enabled: true, intensity: "normal", duration: "normal" };
+    try {
+        const saved = localStorage.getItem(STORAGE_KEY_ANIMATION);
+        return saved ? JSON.parse(saved) : { enabled: true, intensity: "normal", duration: "normal" };
+    } catch {
+        return { enabled: true, intensity: "normal", duration: "normal" };
+    }
+}
+
+export function saveAnimationSettings(settings: AnimationSettings): void {
+    if (typeof window === 'undefined') return;
+    localStorage.setItem(STORAGE_KEY_ANIMATION, JSON.stringify(settings));
 }
 
 // Badges
@@ -394,4 +478,58 @@ export function unlockErrorTracklist(): void {
     };
     localStorage.setItem(STORAGE_KEYS.errorTracklist, JSON.stringify(status));
 }
+
+
+// Member Images
+export function getMemberImage(memberId: string): string | null {
+    if (typeof window === 'undefined') return null;
+    const edits = getProfileEdits();
+    return edits[memberId]?.customImage || null;
+}
+
+// User Quizzes
+export interface UserQuizQuestion {
+    id: string;
+    question: string;
+    options: string[];
+    correctAnswerIndex: number;
+    explanation?: string;
+}
+
+export interface UserQuiz {
+    id: string;
+    title: string;
+    description: string;
+    creator: string;
+    createdAt: string;
+    questions: UserQuizQuestion[];
+    tags: string[];
+}
+
+export function saveUserQuiz(quiz: UserQuiz): void {
+    if (typeof window === 'undefined') return;
+    const quizzes = getUserQuizzes();
+    const existingIndex = quizzes.findIndex(q => q.id === quiz.id);
+
+    if (existingIndex >= 0) {
+        quizzes[existingIndex] = quiz;
+    } else {
+        quizzes.push(quiz);
+    }
+
+    localStorage.setItem('sekai-db-user-quizzes', JSON.stringify(quizzes));
+    addAuditLog({ action: "CREATE_QUIZ", details: `Created quiz: ${quiz.title}` });
+}
+
+export function getUserQuizzes(): UserQuiz[] {
+    if (typeof window === 'undefined') return [];
+    try {
+        const saved = localStorage.getItem('sekai-db-user-quizzes');
+        return saved ? JSON.parse(saved) : [];
+    } catch {
+        return [];
+    }
+}
+
+
 

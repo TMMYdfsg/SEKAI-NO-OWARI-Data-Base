@@ -108,10 +108,10 @@ export default function DiscographyPage() {
         // Apply sort
         switch (sortBy) {
             case 'release-desc':
-                result.sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
+                result.sort((a, b) => new Date(b.releaseDate || 0).getTime() - new Date(a.releaseDate || 0).getTime());
                 break;
             case 'release-asc':
-                result.sort((a, b) => new Date(a.releaseDate).getTime() - new Date(b.releaseDate).getTime());
+                result.sort((a, b) => new Date(a.releaseDate || 0).getTime() - new Date(b.releaseDate || 0).getTime());
                 break;
             case 'name-asc':
                 result.sort((a, b) => a.title.localeCompare(b.title, 'ja'));
@@ -179,7 +179,8 @@ export default function DiscographyPage() {
                         name: t.title,
                         path: metadataMatch.path,
                         category: metadataMatch.category,
-                        thumbnail: album.coverImage
+                        type: metadataMatch.type,
+                        thumbnail: album.coverImage || null
                     });
                 }
             });
@@ -250,12 +251,12 @@ export default function DiscographyPage() {
 
                 {/* Filters & Controls */}
                 <div className="mb-8 flex flex-col items-center gap-6 fade-in-up delay-100">
-                    <div className="flex flex-wrap justify-center gap-3">
+                    <div className="flex overflow-x-auto pb-2 w-full justify-start md:justify-center gap-3 no-scrollbar px-2">
                         {["All", "Single", "Album", "EP", "DVD/Blu-ray"].map((type) => (
                             <button
                                 key={type}
                                 onClick={() => setFilter(type)}
-                                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${filter === type
+                                className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${filter === type
                                     ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25 scale-105"
                                     : "bg-surface hover:bg-surface-hover text-muted-foreground hover:text-foreground border border-white/5"
                                     }`}
@@ -314,8 +315,8 @@ export default function DiscographyPage() {
                                                     setShowSortDropdown(false);
                                                 }}
                                                 className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${sortBy === option.value
-                                                        ? "bg-primary/20 text-primary"
-                                                        : "text-foreground hover:bg-white/5"
+                                                    ? "bg-primary/20 text-primary"
+                                                    : "text-foreground hover:bg-white/5"
                                                     }`}
                                             >
                                                 {option.label}
@@ -396,6 +397,10 @@ export default function DiscographyPage() {
                                 findLocalFile={findLocalFile}
                             />
                         ))}
+                    </div>
+                ) : viewMode === 'timeline' ? (
+                    <div className="fade-in-up">
+                        <VisualTimeline albums={filteredAlbums} />
                     </div>
                 ) : (
                     /* List View */

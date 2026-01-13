@@ -36,12 +36,6 @@ export default function AchievementsPage() {
         return map;
     }, [unlockedData]);
 
-    if (!mounted) return null;
-
-    const total = achievements.filter(a => a.id < 900).length; // Exclude platinum for count if needed, or include all
-    const unlockedCount = unlockedMap.size;
-    const progress = Math.round((unlockedCount / achievements.length) * 100);
-
     // Filter and sort achievements
     const filteredAchievements = useMemo(() => {
         let result = [...achievements];
@@ -88,6 +82,13 @@ export default function AchievementsPage() {
 
         return result;
     }, [searchQuery, filterBy, sortBy, unlockedMap]);
+
+    // Early return AFTER all hooks
+    if (!mounted) return null;
+
+    const total = achievements.filter(a => a.id < 900).length;
+    const unlockedCount = unlockedMap.size;
+    const progress = Math.round((unlockedCount / achievements.length) * 100);
 
     return (
         <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 bg-background text-foreground">
@@ -207,14 +208,14 @@ export default function AchievementsPage() {
                                     <div className="space-y-1">
                                         <div className="flex items-center gap-2">
                                             <span className={`text-xs font-mono px-1.5 py-0.5 rounded border ${isUnlocked
-                                                    ? isPlatinum ? "border-cyan-500/50 text-cyan-400 bg-cyan-950/30" : "border-yellow-500/30 text-yellow-500 bg-yellow-500/10"
-                                                    : "border-white/10 text-muted-foreground"
+                                                ? isPlatinum ? "border-cyan-500/50 text-cyan-400 bg-cyan-950/30" : "border-yellow-500/30 text-yellow-500 bg-yellow-500/10"
+                                                : "border-white/10 text-muted-foreground"
                                                 }`}>
                                                 #{ach.id.toString().padStart(3, '0')}
                                             </span>
                                             <h3 className={`font-bold transition-colors ${isUnlocked
-                                                    ? isPlatinum ? "text-cyan-100" : "text-yellow-100"
-                                                    : "text-white/50 group-hover:text-white/80"
+                                                ? isPlatinum ? "text-cyan-100" : "text-yellow-100"
+                                                : "text-white/50 group-hover:text-white/80"
                                                 }`}>
                                                 {ach.secret && !isUnlocked ? "???" : ach.title}
                                             </h3>
@@ -245,10 +246,10 @@ export default function AchievementsPage() {
                 >
                     <div
                         className={`w-full max-w-lg bg-card border p-8 rounded-2xl shadow-2xl relative animate-in zoom-in-95 duration-200 ${unlockedMap.has(selectedAchievement.id)
-                                ? selectedAchievement.category === 'Platinum'
-                                    ? "border-cyan-500/50 shadow-[0_0_50px_rgba(6,182,212,0.2)]"
-                                    : "border-yellow-500/50 shadow-[0_0_50px_rgba(234,179,8,0.2)]"
-                                : "border-white/10"
+                            ? selectedAchievement.category === 'Platinum'
+                                ? "border-cyan-500/50 shadow-[0_0_50px_rgba(6,182,212,0.2)]"
+                                : "border-yellow-500/50 shadow-[0_0_50px_rgba(234,179,8,0.2)]"
+                            : "border-white/10"
                             }`}
                         onClick={e => e.stopPropagation()}
                     >
@@ -261,10 +262,10 @@ export default function AchievementsPage() {
 
                         <div className="flex flex-col items-center text-center space-y-6">
                             <div className={`p-6 rounded-full ${unlockedMap.has(selectedAchievement.id)
-                                    ? selectedAchievement.category === 'Platinum'
-                                        ? "bg-cyan-500/10 text-cyan-400 border-2 border-cyan-500/50"
-                                        : "bg-yellow-500/10 text-yellow-500 border-2 border-yellow-500/50"
-                                    : "bg-white/5 text-muted-foreground border-2 border-white/10"
+                                ? selectedAchievement.category === 'Platinum'
+                                    ? "bg-cyan-500/10 text-cyan-400 border-2 border-cyan-500/50"
+                                    : "bg-yellow-500/10 text-yellow-500 border-2 border-yellow-500/50"
+                                : "bg-white/5 text-muted-foreground border-2 border-white/10"
                                 }`}>
                                 {unlockedMap.has(selectedAchievement.id) ? (
                                     <Trophy size={48} />

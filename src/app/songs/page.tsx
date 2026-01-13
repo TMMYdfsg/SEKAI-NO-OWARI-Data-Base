@@ -5,6 +5,8 @@ import { useState, useMemo, useEffect } from "react";
 import { Search, Disc, User, SortAsc, SortDesc, Calendar, Layers, Folder, Play, Edit2, Image as ImageIcon, X, FileText, Settings, Pencil, Youtube, Music, Link as LinkIcon, ExternalLink as ExternalIcon } from "lucide-react";
 import { usePlayer, Track } from "@/contexts/PlayerContext";
 import SmartPlaylist from "@/components/SmartPlaylist";
+import AlbumSelector from "@/components/AlbumSelector";
+import { albums as discographyAlbums } from "@/data/discography";
 import { detectLinkService, buildSearchQuery, serviceConfigs, type ExternalLinkService } from "@/types/external-links";
 
 type SortOption = "az" | "za" | "year_asc" | "year_desc" | "album_az" | "album_za" | "writer" | "composer" | "category" | "filename" | "folder_year_asc" | "folder_year_desc";
@@ -27,7 +29,7 @@ type MergedSong = {
     id: string;
     title: string;
     album: string;
-    year: number | string;
+    year: number | string | null;
     writer: string;
     composer: string;
     category: string; // File system information
@@ -39,6 +41,7 @@ type SongDetails = {
     writer?: string;      // L: 作詞者
     composer?: string;    // C: 作曲者
     memo?: string;        // メモ
+    albumIds?: string[];  // 収録アルバム/シングルID
     links?: {
         spotify?: string;
         youtube?: string;
@@ -78,6 +81,8 @@ export default function SongsPage() {
     const [tempSpotify, setTempSpotify] = useState("");
     const [tempYoutube, setTempYoutube] = useState("");
     const [tempApple, setTempApple] = useState("");
+    const [tempAlbumIds, setTempAlbumIds] = useState<string[]>([]);
+    const [showAlbumSelector, setShowAlbumSelector] = useState(false);
 
     const CUSTOM_COVERS_KEY = "sekaowa_song_custom_covers";
     const SONGS_LYRICS_KEY = "sekaowa_songs_lyrics";
@@ -178,6 +183,33 @@ export default function SongsPage() {
     }, []);
 
     const mergedSongs = useMemo(() => {
+        // Helper: Get display album name from songDetails.albumIds (Single priority)
+        // Defined inside useMemo to capture latest songDetails state
+        const getDisplayAlbumName = (songId: string, defaultAlbum: string): string => {
+            const details = songDetails[songId];
+            if (!details?.albumIds || details.albumIds.length === 0) {
+                return defaultAlbum;
+            }
+
+            // Find albums from discographyAlbums
+            const matchedAlbums = details.albumIds
+                .map(id => discographyAlbums.find(a => a.id === id))
+                .filter(Boolean);
+
+            if (matchedAlbums.length === 0) {
+                return defaultAlbum;
+            }
+
+            // Prioritize Single over Album
+            const single = matchedAlbums.find(a => a?.type === 'Single');
+            if (single) {
+                return single.title;
+            }
+
+            // Fallback to first matched album
+            return matchedAlbums[0]?.title || defaultAlbum;
+        };
+
         return localFiles
             .filter(file => file.category === "Original")
             .map(file => {
@@ -197,10 +229,14 @@ export default function SongsPage() {
                 const writer = details?.writer || (meta ? meta.writer : "-");
                 const composer = details?.composer || (meta ? meta.composer : "-");
 
+                // Use getDisplayAlbumName for album display
+                const defaultAlbum = meta ? meta.album : "Unknown Album";
+                const displayAlbum = getDisplayAlbumName(songId, defaultAlbum);
+
                 return {
                     id: songId,
                     title: title,
-                    album: meta ? meta.album : "Unknown Album",
+                    album: displayAlbum,
                     year: year,
                     writer: writer,
                     composer: composer,
@@ -301,6 +337,7 @@ export default function SongsPage() {
         setTempSpotify(currentDetails.links?.spotify || "");
         setTempYoutube(currentDetails.links?.youtube || "");
         setTempApple(currentDetails.links?.apple || "");
+        setTempAlbumIds(currentDetails.albumIds || []);
     };
 
     const handleSaveDetails = () => {
@@ -309,6 +346,7 @@ export default function SongsPage() {
                 writer: tempWriter || undefined,
                 composer: tempComposer || undefined,
                 memo: tempMemo || undefined,
+                albumIds: tempAlbumIds.length > 0 ? tempAlbumIds : undefined,
                 links: {
                     spotify: tempSpotify || undefined,
                     youtube: tempYoutube || undefined,
@@ -317,7 +355,18 @@ export default function SongsPage() {
             };
             const updatedSongDetails = { ...songDetails, [detailsModal.songId]: newDetails };
             setSongDetails(updatedSongDetails);
+            // LocalStorage に保存
             localStorage.setItem(SONG_DETAILS_KEY, JSON.stringify(updatedSongDetails));
+
+            // サーバーにも永続化
+            fetch('/api/db/songs', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id: detailsModal.songId,
+                    ...newDetails,
+                }),
+            }).catch(err => console.error('Failed to save to server:', err));
         }
         setDetailsModal(null);
         setTempWriter("");
@@ -326,6 +375,7 @@ export default function SongsPage() {
         setTempSpotify("");
         setTempYoutube("");
         setTempApple("");
+        setTempAlbumIds([]);
     };
 
     const handleClearDetails = () => {
@@ -686,6 +736,55 @@ export default function SongsPage() {
                                     </div>
                                 </div>
 
+                                {/* Album/Single Selection Section */}
+                                <div className="space-y-4 pt-2 border-t border-white/5">
+                                    <h4 className="text-xs font-bold text-primary/80 uppercase tracking-wider flex items-center gap-2">
+                                        <Disc size={12} />
+                                        収録作品
+                                    </h4>
+
+                                    {/* Selected Albums Display */}
+                                    {tempAlbumIds.length > 0 ? (
+                                        <div className="flex flex-wrap gap-2">
+                                            {tempAlbumIds.map((albumId) => {
+                                                const album = discographyAlbums.find((a) => a.id === albumId);
+                                                if (!album) return null;
+                                                return (
+                                                    <div
+                                                        key={albumId}
+                                                        className="flex items-center gap-2 px-3 py-1.5 bg-primary/10 border border-primary/30 rounded-lg text-sm group"
+                                                    >
+                                                        <span className="text-primary font-medium truncate max-w-[150px]">
+                                                            {album.title}
+                                                        </span>
+                                                        <span className="text-[10px] text-muted-foreground">
+                                                            {album.type}
+                                                        </span>
+                                                        <button
+                                                            onClick={() => setTempAlbumIds(prev => prev.filter(id => id !== albumId))}
+                                                            className="text-red-400 hover:text-red-300 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                        >
+                                                            <X size={12} />
+                                                        </button>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    ) : (
+                                        <p className="text-xs text-muted-foreground">収録作品が未設定です</p>
+                                    )}
+
+                                    {/* Open Album Selector Button */}
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowAlbumSelector(true)}
+                                        className="w-full px-4 py-3 border-2 border-dashed border-white/10 hover:border-primary/50 hover:bg-primary/5 rounded-xl text-sm text-muted-foreground hover:text-primary transition-all flex items-center justify-center gap-2 group"
+                                    >
+                                        <Disc size={16} className="group-hover:animate-spin" style={{ animationDuration: '2s' }} />
+                                        アルバム・シングルを選択
+                                    </button>
+                                </div>
+
                                 {/* External Links Section */}
                                 <div className="space-y-4 pt-2 border-t border-white/5">
                                     <h4 className="text-xs font-bold text-primary/80 uppercase tracking-wider flex items-center gap-2">
@@ -871,6 +970,19 @@ export default function SongsPage() {
                     </div>
                 )}
             </div>
+
+            {/* Album Selector Modal */}
+            {showAlbumSelector && detailsModal && (
+                <AlbumSelector
+                    selectedAlbumIds={tempAlbumIds}
+                    onSelectionChange={(newIds) => {
+                        setTempAlbumIds(newIds);
+                        setShowAlbumSelector(false);
+                    }}
+                    onClose={() => setShowAlbumSelector(false)}
+                    songTitle={detailsModal.songTitle}
+                />
+            )}
         </>
     );
 }

@@ -143,8 +143,8 @@ export default function HistoryDetailPage() {
                     path: file.path,
                     type: file.type,
                     category: file.category,
-                    thumbnail: file.thumbnail,
-                };
+                    thumbnail: file.thumbnail || undefined,
+                } as Track;
             })
             .filter((t): t is Track => t !== null);
 
@@ -394,7 +394,7 @@ export default function HistoryDetailPage() {
                     path: file.path,
                     type: file.type,
                     category: file.category,
-                    thumbnail: file.thumbnail,
+                    thumbnail: file.thumbnail || undefined,
                 };
                 playSong(track);
             }
@@ -425,8 +425,8 @@ export default function HistoryDetailPage() {
                     path: match.path,
                     type: match.type,
                     category: match.category,
-                    thumbnail: match.thumbnail,
-                };
+                    thumbnail: match.thumbnail || undefined,
+                } as Track;
             }
             return null;
         }).filter((t): t is Track => t !== null);

@@ -17,7 +17,7 @@
     ],
     "visibility": "public",
     "createdAt": "2026-01-09T08:00:00.000Z",
-    "updatedAt": "2026-01-09T19:33:25.884Z",
+    "updatedAt": "2026-01-12T15:24:16.785Z",
     "bgm": {
       "enabled": true,
       "autoPlay": true,
@@ -35,7 +35,8 @@
         "name": ""
       },
       "tourName": ""
-    }
+    },
+    "notes": "Fixed via API"
   },
   {
     "id": "history-2025-1",

@@ -244,7 +244,7 @@ export default function MembersPage() {
                                 <Trash2 size={18} /> Reset
                             </button>
                             <button
-                                onClick={handleSaveImage}
+                                onClick={() => handleSaveImage(tempPreview)}
                                 disabled={!tempPreview}
                                 className="px-4 py-3 rounded-xl bg-primary text-primary-foreground font-bold hover:bg-primary/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                             >

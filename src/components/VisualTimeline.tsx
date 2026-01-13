@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { Discography } from "@/types/discography";
-import { Chevronright, Calendar, Disc } from "lucide-react";
+import { ChevronRight, Calendar, Disc, Play } from "lucide-react";
 import Link from "next/link";
 
 interface VisualTimelineProps {
@@ -14,12 +14,12 @@ export default function VisualTimeline({ albums }: VisualTimelineProps) {
     const [selectedAlbum, setSelectedAlbum] = useState<Discography | null>(null);
 
     // Sort albums by release date (oldest first)
-    const sortedAlbums = [...albums].sort((a, b) => new Date(a.releaseDate).getTime() - new Date(b.releaseDate).getTime());
+    const sortedAlbums = [...albums].sort((a, b) => new Date(a.releaseDate || 0).getTime() - new Date(b.releaseDate || 0).getTime());
 
     // Group by year
     const albumsByYear: { year: string; albums: Discography[] }[] = [];
     sortedAlbums.forEach(album => {
-        const year = new Date(album.releaseDate).getFullYear().toString();
+        const year = new Date(album.releaseDate || Date.now()).getFullYear().toString();
         const lastGroup = albumsByYear[albumsByYear.length - 1];
         if (lastGroup && lastGroup.year === year) {
             lastGroup.albums.push(album);
@@ -111,14 +111,14 @@ export default function VisualTimeline({ albums }: VisualTimelineProps) {
                                                     <h3 className="text-base font-bold text-white line-clamp-1 mb-1">{album.title}</h3>
                                                     <div className="flex items-center gap-2">
                                                         <span className={`text-[10px] px-2 py-0.5 rounded-full border ${album.type === 'Single'
-                                                                ? 'border-blue-500/30 text-blue-300 bg-blue-500/10'
-                                                                : 'border-purple-500/30 text-purple-300 bg-purple-500/10'
+                                                            ? 'border-blue-500/30 text-blue-300 bg-blue-500/10'
+                                                            : 'border-purple-500/30 text-purple-300 bg-purple-500/10'
                                                             }`}>
                                                             {album.type}
                                                         </span>
-                                                        {album.tracks && (
+                                                        {album.discs && (
                                                             <span className="text-[10px] text-muted-foreground flex items-center gap-1">
-                                                                <Disc size={10} /> {album.tracks} Songs
+                                                                <Disc size={10} /> {album.discs.reduce((acc, disc) => acc + (disc.tracks?.length || 0), 0)} Songs
                                                             </span>
                                                         )}
                                                     </div>

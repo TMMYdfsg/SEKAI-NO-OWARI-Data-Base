@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { X, Upload, Layers, Save, Trash2, Move, RotateCw, ZoomIn, ArrowUp, ArrowDown } from "lucide-react";
+import { X, Upload, Layers, Save, Trash2, Move, RotateCw, ZoomIn, ArrowUp, ArrowDown, Settings, ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 interface Layer {
     id: string;
@@ -165,6 +166,39 @@ export default function MemberCustomizer({ memberId, memberName, initialImage, o
         setIsDragging(false);
     };
 
+    // Drag & Drop for File Upload
+    const handleDragOver = (e: React.DragEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+    };
+
+    const handleDrop = (e: React.DragEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const file = e.dataTransfer.files?.[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            if (event.target?.result) {
+                const newLayer: Layer = {
+                    id: Date.now().toString(),
+                    name: file.name,
+                    image: event.target.result as string,
+                    x: 0,
+                    y: 0,
+                    scale: 0.5,
+                    rotation: 0,
+                    zIndex: layers.length
+                };
+                setLayers(prev => [...prev, newLayer]);
+                setSelectedLayerId(newLayer.id);
+            }
+        };
+        reader.readAsDataURL(file);
+    };
+
     const handleSave = () => {
         const canvas = canvasRef.current;
         if (!canvas) return;
@@ -176,7 +210,11 @@ export default function MemberCustomizer({ memberId, memberName, initialImage, o
     const selectedLayer = layers.find(l => l.id === selectedLayerId);
 
     return (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4">
+        <div
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4"
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
+        >
             <div className="bg-card w-full max-w-6xl h-[90vh] rounded-2xl border border-white/10 flex overflow-hidden shadow-2xl">
 
                 {/* Left Panel: Layers & Controls */}
@@ -194,7 +232,7 @@ export default function MemberCustomizer({ memberId, memberName, initialImage, o
                             <label className="block w-full cursor-pointer group">
                                 <div className="flex items-center justify-center gap-2 p-4 border-2 border-dashed border-white/20 rounded-xl group-hover:border-primary/50 group-hover:bg-primary/5 transition-all">
                                     <Upload size={20} className="text-muted-foreground group-hover:text-primary" />
-                                    <span className="text-sm text-muted-foreground group-hover:text-white">Add Image Layer</span>
+                                    <span className="text-sm text-muted-foreground group-hover:text-white">Drag & Drop or Click</span>
                                 </div>
                                 <input type="file" accept="image/*" onChange={handleFileUpload} className="hidden" />
                             </label>
@@ -209,8 +247,8 @@ export default function MemberCustomizer({ memberId, memberName, initialImage, o
                                         key={layer.id}
                                         onClick={() => setSelectedLayerId(layer.id)}
                                         className={`flex items-center gap-3 p-3 rounded-lg border transition-all cursor-pointer ${selectedLayerId === layer.id
-                                                ? "bg-primary/20 border-primary/50"
-                                                : "bg-white/5 border-white/5 hover:bg-white/10"
+                                            ? "bg-primary/20 border-primary/50"
+                                            : "bg-white/5 border-white/5 hover:bg-white/10"
                                             }`}
                                     >
                                         <div className="w-10 h-10 rounded bg-black/50 overflow-hidden shrink-0">
@@ -282,7 +320,7 @@ export default function MemberCustomizer({ memberId, memberName, initialImage, o
                         )}
                     </div>
 
-                    <div className="p-4 border-t border-white/10 bg-black/40">
+                    <div className="p-4 border-t border-white/10 bg-black/40 space-y-2">
                         <button
                             onClick={handleSave}
                             className="w-full py-3 bg-primary hover:bg-primary/80 text-primary-foreground rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/20"
@@ -290,9 +328,10 @@ export default function MemberCustomizer({ memberId, memberName, initialImage, o
                             <Save size={20} />
                             Save Customization
                         </button>
+
                         <button
                             onClick={onClose}
-                            className="w-full mt-2 py-2 text-muted-foreground hover:text-white transition-colors text-sm"
+                            className="w-full py-2 text-muted-foreground hover:text-white transition-colors text-sm"
                         >
                             Cancel
                         </button>

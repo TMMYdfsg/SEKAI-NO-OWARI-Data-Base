@@ -46,6 +46,8 @@ export default function GlobalPlayer() {
     const [showVolume, setShowVolume] = useState(false);
     const [showLyrics, setShowLyrics] = useState(true); // Toggle between Visualizer/Lyrics in immersive
 
+    const [autoScroll, setAutoScroll] = useState(true);
+
     // Data state
     const [discographyCovers, setDiscographyCovers] = useState<Record<string, string>>({});
     const [customCovers, setCustomCovers] = useState<Record<string, string>>({});
@@ -124,7 +126,7 @@ export default function GlobalPlayer() {
 
     // Auto-scroll lyrics (Simple linear interpolation based on progress)
     useEffect(() => {
-        if (isImmersive && showLyrics && lyricsContainerRef.current && duration > 0) {
+        if (isImmersive && showLyrics && autoScroll && lyricsContainerRef.current && duration > 0) {
             const container = lyricsContainerRef.current;
             const scrollHeight = container.scrollHeight - container.clientHeight;
             if (scrollHeight > 0) {
@@ -140,7 +142,7 @@ export default function GlobalPlayer() {
                 });
             }
         }
-    }, [currentTime, duration, isImmersive, showLyrics]);
+    }, [currentTime, duration, isImmersive, showLyrics, autoScroll]);
 
     // Don't render if no track
     if (!currentTrack && playlist.length === 0) {
@@ -205,10 +207,11 @@ export default function GlobalPlayer() {
                 </div>
 
                 {/* Main Content */}
-                <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-center justify-center gap-8 p-6 lg:p-12 min-h-0">
+                <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-center justify-center gap-8 p-6 lg:p-12 min-h-0 w-full max-w-7xl mx-auto">
+
                     {/* Visualizer / Artwork Area */}
-                    <div className={`flex flex-col items-center justify-center w-full ${showLyrics ? 'lg:w-1/2 h-1/2 lg:h-full' : 'h-full'}`}>
-                        <div className="aspect-square w-full max-w-[300px] lg:max-w-[500px] relative rounded-2xl overflow-hidden shadow-2xl mb-8 ring-1 ring-white/10">
+                    <div className={`flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${showLyrics ? 'lg:w-1/2 h-1/2 lg:h-full' : 'w-full h-full'}`}>
+                        <div className={`relative rounded-2xl overflow-hidden shadow-2xl mb-8 ring-1 ring-white/10 transition-all duration-500 ${showLyrics ? 'aspect-square w-full max-w-[400px]' : 'aspect-square w-full max-w-[500px]'}`}>
                             {thumbnailUrl ? (
                                 <img src={thumbnailUrl} alt="Cover" className="w-full h-full object-cover" />
                             ) : (
@@ -218,8 +221,8 @@ export default function GlobalPlayer() {
                             )}
                         </div>
 
-                        {/* Always show visualizer in immersive mode, positioned below art or integrated */}
-                        <div className="w-full max-w-[600px] h-[100px]">
+                        {/* Visualizer */}
+                        <div className="w-full max-w-[600px] h-[120px] bg-black/40 rounded-xl backdrop-blur-sm border border-white/5 p-2">
                             <AudioVisualizer
                                 audioElement={audioRef.current}
                                 isPlaying={isPlaying}
@@ -229,30 +232,46 @@ export default function GlobalPlayer() {
                     </div>
 
                     {/* Lyrics Area */}
-                    {showLyrics && (
-                        <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex flex-col items-center lg:items-start text-center lg:text-left">
-                            <div
-                                ref={lyricsContainerRef}
-                                className="w-full h-full overflow-y-auto custom-scrollbar px-4 mask-image-gradient py-12"
-                            >
-                                {lyrics ? (
-                                    <div className="space-y-6">
-                                        {formattedLyrics.map((line, i) => (
-                                            <p key={i} className="text-lg lg:text-2xl font-serif text-white/90 leading-relaxed transition-opacity duration-300 hover:text-white hover:scale-105 origin-left">
-                                                {line}
-                                            </p>
-                                        ))}
-                                    </div>
-                                ) : (
-                                    <div className="h-full flex flex-col items-center justify-center text-muted-foreground opacity-50">
-                                        <Mic2 size={48} className="mb-4" />
-                                        <p>歌詞データがありません</p>
-                                        <p className="text-sm mt-2">詳細編集から歌詞を追加できます</p>
-                                    </div>
-                                )}
+                    <div className={`flex flex-col items-center lg:items-start text-center lg:text-left transition-all duration-500 ease-in-out ${showLyrics ? 'w-full lg:w-1/2 h-1/2 lg:h-full opacity-100 translate-x-0' : 'w-0 h-0 opacity-0 translate-x-10 overflow-hidden'}`}>
+                        {showLyrics && (
+                            <div className="w-full h-full bg-black/20 backdrop-blur-md rounded-2xl border border-white/5 flex flex-col overflow-hidden relative group">
+                                <div className="absolute top-2 right-2 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 rounded-lg p-1">
+                                    <button
+                                        onClick={() => setAutoScroll(!autoScroll)}
+                                        className={`text-[10px] px-2 py-1 rounded transition-colors ${autoScroll ? "text-primary bg-primary/20" : "text-white/50 hover:text-white"}`}
+                                    >
+                                        Auto-Scroll: {autoScroll ? "ON" : "OFF"}
+                                    </button>
+                                </div>
+
+                                <div
+                                    ref={lyricsContainerRef}
+                                    className="w-full h-full overflow-y-auto custom-scrollbar px-6 py-12 mask-image-gradient"
+                                >
+                                    {lyrics ? (
+                                        <div className="space-y-8">
+                                            {formattedLyrics.map((line, i) => (
+                                                <p key={i} className={`text-lg lg:text-2xl font-serif leading-relaxed transition-all duration-300 origin-left hover:text-white hover:scale-105 cursor-default ${
+                                                    // Simple highlight logic based on progress (approximate)
+                                                    // Ideally needs LRC format for precise sync.
+                                                    // For now, we just keep basic styling.
+                                                    "text-white/80"
+                                                    }`}>
+                                                    {line}
+                                                </p>
+                                            ))}
+                                            <div className="h-32" /> {/* Bottom padding */}
+                                        </div>
+                                    ) : (
+                                        <div className="h-full flex flex-col items-center justify-center text-muted-foreground opacity-50">
+                                            <Mic2 size={48} className="mb-4" />
+                                            <p>歌詞データがありません</p>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
 
                 {/* Footer Controls (Immersive) */}
@@ -350,7 +369,7 @@ export default function GlobalPlayer() {
                     <div className="flex items-center gap-2">
                         <button
                             onClick={toggleShuffle}
-                            className={`p-2 rounded-full transition-colors ${isShuffle ? "text-primary bg-primary/20" : "text-white/60 hover:text-white"
+                            className={`hidden sm:block p-2 rounded-full transition-colors ${isShuffle ? "text-primary bg-primary/20" : "text-white/60 hover:text-white"
                                 }`}
                             title="シャッフル"
                         >
@@ -367,10 +386,10 @@ export default function GlobalPlayer() {
 
                         <button
                             onClick={togglePlay}
-                            className="p-3 rounded-full bg-primary text-white hover:bg-primary/80 transition-colors shadow-lg"
+                            className="p-2 sm:p-3 rounded-full bg-primary text-white hover:bg-primary/80 transition-colors shadow-lg"
                             title={isPlaying ? "一時停止" : "再生"}
                         >
-                            {isPlaying ? <Pause size={24} /> : <Play size={24} />}
+                            {isPlaying ? <Pause size={20} className="sm:w-6 sm:h-6" /> : <Play size={20} className="sm:w-6 sm:h-6" />}
                         </button>
 
                         <button
@@ -383,7 +402,7 @@ export default function GlobalPlayer() {
 
                         <button
                             onClick={toggleLoop}
-                            className={`p-2 rounded-full transition-colors ${isLoop || isLoopAll ? "text-primary bg-primary/20" : "text-white/60 hover:text-white"
+                            className={`hidden sm:block p-2 rounded-full transition-colors ${isLoop || isLoopAll ? "text-primary bg-primary/20" : "text-white/60 hover:text-white"
                                 }`}
                             title={isLoop ? "1曲リピート" : isLoopAll ? "全曲リピート" : "リピート"}
                         >

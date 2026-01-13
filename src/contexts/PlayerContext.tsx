@@ -109,40 +109,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         }
     }, [isInitialized]);
 
-    // Audio event handlers
-    useEffect(() => {
-        const audio = audioRef.current;
-        if (!audio) return;
-
-        const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
-        const handleDurationChange = () => setDuration(audio.duration);
-        const handleEnded = () => {
-            if (isLoop) {
-                audio.currentTime = 0;
-                audio.play();
-            } else if (isLoopAll || currentIndex < playlist.length - 1) {
-                nextTrack();
-            } else {
-                setIsPlaying(false);
-            }
-        };
-        const handlePlay = () => setIsPlaying(true);
-        const handlePause = () => setIsPlaying(false);
-
-        audio.addEventListener("timeupdate", handleTimeUpdate);
-        audio.addEventListener("durationchange", handleDurationChange);
-        audio.addEventListener("ended", handleEnded);
-        audio.addEventListener("play", handlePlay);
-        audio.addEventListener("pause", handlePause);
-
-        return () => {
-            audio.removeEventListener("timeupdate", handleTimeUpdate);
-            audio.removeEventListener("durationchange", handleDurationChange);
-            audio.removeEventListener("ended", handleEnded);
-            audio.removeEventListener("play", handlePlay);
-            audio.removeEventListener("pause", handlePause);
-        };
-    }, [isLoop, isLoopAll, currentIndex, playlist.length]);
+    // --- Function Definitions (Must be BEFORE useEffects that use them) ---
 
     const playSong = useCallback((track: Track, newPlaylist?: Track[]) => {
         if (newPlaylist) {
@@ -274,6 +241,89 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
             audioRef.current.volume = vol;
         }
     }, []);
+
+    // --- Effects that depend on functions ---
+
+    // Audio event handlers
+    useEffect(() => {
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
+        const handleDurationChange = () => setDuration(audio.duration);
+        const handleEnded = () => {
+            if (isLoop) {
+                audio.currentTime = 0;
+                audio.play();
+            } else if (isLoopAll || currentIndex < playlist.length - 1) {
+                nextTrack();
+            } else {
+                setIsPlaying(false);
+            }
+        };
+        const handlePlay = () => setIsPlaying(true);
+        const handlePause = () => setIsPlaying(false);
+
+        audio.addEventListener("timeupdate", handleTimeUpdate);
+        audio.addEventListener("durationchange", handleDurationChange);
+        audio.addEventListener("ended", handleEnded);
+        audio.addEventListener("play", handlePlay);
+        audio.addEventListener("pause", handlePause);
+
+        return () => {
+            audio.removeEventListener("timeupdate", handleTimeUpdate);
+            audio.removeEventListener("durationchange", handleDurationChange);
+            audio.removeEventListener("ended", handleEnded);
+            audio.removeEventListener("play", handlePlay);
+            audio.removeEventListener("pause", handlePause);
+        };
+    }, [isLoop, isLoopAll, currentIndex, playlist.length, nextTrack]);
+
+    // Global Keyboard Shortcuts
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            // Ignore if typing in input/textarea
+            if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement).tagName)) return;
+            if ((e.target as HTMLElement).isContentEditable) return;
+
+            // Prevent default scrolling for Space/Arrows if mostly used for playback
+            switch (e.key) {
+                case ' ':
+                    e.preventDefault();
+                    togglePlay();
+                    break;
+                case 'ArrowRight':
+                    if (e.shiftKey) {
+                        nextTrack();
+                    } else {
+                        seek(Math.min(duration, currentTime + 5));
+                    }
+                    break;
+                case 'ArrowLeft':
+                    if (e.shiftKey) {
+                        prevTrack();
+                    } else {
+                        seek(Math.max(0, currentTime - 5));
+                    }
+                    break;
+                case 'm':
+                case 'M':
+                    setVolume(volume > 0 ? 0 : 1); // Simple mute toggle
+                    break;
+                case 's':
+                case 'S':
+                    toggleShuffle();
+                    break;
+                case 'l':
+                case 'L':
+                    toggleLoop();
+                    break;
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [togglePlay, nextTrack, prevTrack, seek, currentTime, duration, volume, setVolume, toggleShuffle, toggleLoop]);
 
     const currentTrack = playlist[currentIndex] || null;
 

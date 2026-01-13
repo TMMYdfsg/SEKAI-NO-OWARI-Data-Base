@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
-import { Image as ImageIcon, Folder, X, ChevronLeft, ChevronRight, Grid, Loader, Lock, Sparkles, Eye, EyeOff, Search, ArrowUpDown, ChevronDown, Check, ImagePlus } from "lucide-react";
+import { useState, useEffect, useMemo, useCallback } from "react";
+import { Image as ImageIcon, Folder, X, ChevronLeft, ChevronRight, Grid, Loader, Lock, Sparkles, Eye, EyeOff, Search, ArrowUpDown, ChevronDown, Check, ImagePlus, RefreshCw } from "lucide-react";
 import { hasGallerySecretAccess, setGallerySecretAccess, unlockAchievement } from "@/lib/local-storage-data";
+import { fetchWithCache, clearApiCache } from "@/lib/api-cache";
 import ToolsMenu from "@/components/gallery/ToolsMenu";
 import CollageCreator from "@/components/gallery/CollageCreator";
 import WallpaperGenerator from "@/components/gallery/WallpaperGenerator";
@@ -40,6 +41,7 @@ export default function GalleryPage() {
     const [error, setError] = useState<string | null>(null);
     const [hasSecretAccess, setHasSecretAccess] = useState(false);
     const [coverImages, setCoverImages] = useState<Record<string, string>>({});
+    const [isRefreshing, setIsRefreshing] = useState(false);
 
     // Sort and filter state
     const [searchQuery, setSearchQuery] = useState('');
@@ -51,6 +53,33 @@ export default function GalleryPage() {
     const [showWallpaperGenerator, setShowWallpaperGenerator] = useState(false);
 
     // Initial Load
+    const loadFolders = useCallback(async (forceRefresh = false) => {
+        setLoading(true);
+        if (forceRefresh) {
+            clearApiCache('gallery_folders');
+            setIsRefreshing(true);
+        }
+
+        try {
+            const data = await fetchWithCache('gallery_folders', async () => {
+                const res = await fetch('/api/gallery');
+                return res.json();
+            }, 1000 * 60 * 60); // 1 hour cache
+
+            if (data.error) {
+                setError(data.error);
+            } else {
+                setFolders(data.folders || []);
+            }
+        } catch (err) {
+            console.error("Failed to load gallery:", err);
+            setError("ギャラリーの読み込みに失敗しました");
+        } finally {
+            setLoading(false);
+            setIsRefreshing(false);
+        }
+    }, []);
+
     useEffect(() => {
         setHasSecretAccess(hasGallerySecretAccess());
 
@@ -64,22 +93,14 @@ export default function GalleryPage() {
             }
         }
 
-        fetch('/api/gallery')
-            .then(res => res.json())
-            .then(data => {
-                if (data.error) {
-                    setError(data.error);
-                } else {
-                    setFolders(data.folders || []);
-                }
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error("Failed to load gallery:", err);
-                setError("ギャラリーの読み込みに失敗しました");
-                setLoading(false);
-            });
-    }, []);
+        // Load sort preference
+        const savedSort = localStorage.getItem('sekaowa_gallery_sort');
+        if (savedSort && sortOptions.some(o => o.value === savedSort)) {
+            setSortBy(savedSort as SortOption);
+        }
+
+        loadFolders();
+    }, [loadFolders]);
 
     // Filter and Sort Folders
     const visibleFolders = folders.filter(folder => {
@@ -120,24 +141,35 @@ export default function GalleryPage() {
         (selectedFolder.includes("シークレットハウス") || selectedFolder.toLowerCase().includes("secret"));
 
     // Load Images
+    const loadImages = useCallback(async (folderPath: string, forceRefresh = false) => {
+        setImagesLoading(true);
+        if (forceRefresh) {
+            clearApiCache(`gallery_images_${folderPath}`);
+            setIsRefreshing(true);
+        }
+
+        try {
+            const data = await fetchWithCache(`gallery_images_${folderPath}`, async () => {
+                const res = await fetch(`/api/gallery?folder=${encodeURIComponent(folderPath)}`);
+                return res.json();
+            }); // Default cache TTL
+
+            setImages(data.images || []);
+        } catch (err) {
+            console.error("Failed to load images:", err);
+        } finally {
+            setImagesLoading(false);
+            setIsRefreshing(false);
+        }
+    }, []);
+
     useEffect(() => {
         if (!selectedFolder) {
             setImages([]);
             return;
         }
-
-        setImagesLoading(true);
-        fetch(`/api/gallery?folder=${encodeURIComponent(selectedFolder)}`)
-            .then(res => res.json())
-            .then(data => {
-                setImages(data.images || []);
-                setImagesLoading(false);
-            })
-            .catch(err => {
-                console.error("Failed to load images:", err);
-                setImagesLoading(false);
-            });
-    }, [selectedFolder]);
+        loadImages(selectedFolder);
+    }, [selectedFolder, loadImages]);
 
     // Lightbox Logic
     const navigateLightbox = (direction: 'prev' | 'next') => {
@@ -188,6 +220,13 @@ export default function GalleryPage() {
                     <ImageIcon size={64} className="mx-auto mb-4 text-white/20" />
                     <h1 className="text-2xl font-bold text-muted-foreground mb-4">Error</h1>
                     <p className="text-muted-foreground/50">{error}</p>
+                    <button
+                        onClick={() => loadFolders(true)}
+                        className="mt-6 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/80 transition-colors flex items-center gap-2 mx-auto"
+                    >
+                        <RefreshCw size={16} />
+                        Retry
+                    </button>
                 </div>
             </div>
         );
@@ -207,12 +246,22 @@ export default function GalleryPage() {
                     // Folder View
                     <div className="fade-in-up">
                         <div className="flex items-center justify-between mb-8">
-                            <button
-                                onClick={() => setSelectedFolder(null)}
-                                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors hover:scale-105 transform active:scale-95 duration-200"
-                            >
-                                <ChevronLeft size={20} /> Back to Folders
-                            </button>
+                            <div className="flex items-center gap-4">
+                                <button
+                                    onClick={() => setSelectedFolder(null)}
+                                    className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors hover:scale-105 transform active:scale-95 duration-200"
+                                >
+                                    <ChevronLeft size={20} /> Back to Folders
+                                </button>
+                                <button
+                                    onClick={() => loadImages(selectedFolder, true)}
+                                    disabled={isRefreshing}
+                                    className={`p-2 rounded-full hover:bg-white/10 text-muted-foreground hover:text-white transition-all ${isRefreshing ? 'animate-spin text-primary' : ''}`}
+                                    title="Refresh Images"
+                                >
+                                    <RefreshCw size={18} />
+                                </button>
+                            </div>
                             <h2 className="text-2xl font-bold font-serif flex items-center gap-2">
                                 <Folder className="text-primary" />
                                 {selectedFolder.split(/[\\/]/).pop()}
@@ -291,6 +340,7 @@ export default function GalleryPage() {
                                                     key={option.value}
                                                     onClick={() => {
                                                         setSortBy(option.value);
+                                                        localStorage.setItem('sekaowa_gallery_sort', option.value);
                                                         setShowSortDropdown(false);
                                                     }}
                                                     className={`w-full text-left px-4 py-3 text-sm transition-colors flex items-center justify-between ${sortBy === option.value
@@ -436,17 +486,18 @@ export default function GalleryPage() {
                 {/* Tools Modals */}
                 {showCollageCreator && (
                     <CollageCreator
-                        images={images.map(img => `/api/media?file=${encodeURIComponent(img.path)}`)}
+                        images={images}
                         onClose={() => setShowCollageCreator(false)}
                     />
                 )}
 
                 {showWallpaperGenerator && (
                     <WallpaperGenerator
+                        images={images}
                         onClose={() => setShowWallpaperGenerator(false)}
                     />
                 )}
             </div>
-        </div>
+        </div >
     );
 }

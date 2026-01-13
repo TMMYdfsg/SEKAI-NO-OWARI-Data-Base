@@ -1,0 +1,18 @@
+src/app/admin/page.tsx(10,27): error TS2307: Cannot find module '@/data/goods' or its corresponding type declarations.
+src/app/admin/page.tsx(45,47): error TS2339: Property 'id' does not exist on type 'HistoryEvent'.
+src/app/history/page.tsx(214,30): error TS2304: Cannot find name 'HistoryStats'.
+src/app/recommend/page.tsx(27,22): error TS2345: Argument of type 'Song' is not assignable to parameter of type 'Track'.
+  Type 'Song' is missing the following properties from type 'Track': name, path, type
+src/app/recommend/page.tsx(108,77): error TS2345: Argument of type 'Song' is not assignable to parameter of type 'Track'.
+  Type 'Song' is missing the following properties from type 'Track': name, path, type
+src/app/recommend/page.tsx(112,63): error TS2339: Property 'thumbnail' does not exist on type 'Song'.
+src/app/recommend/page.tsx(113,76): error TS2339: Property 'thumbnail' does not exist on type 'Song'.
+src/app/recommend/page.tsx(187,65): error TS2345: Argument of type 'Song' is not assignable to parameter of type 'Track'.
+  Type 'Song' is missing the following properties from type 'Track': name, path, type
+src/app/recommend/page.tsx(191,51): error TS2339: Property 'thumbnail' does not exist on type 'Song'.
+src/app/recommend/page.tsx(191,79): error TS2339: Property 'thumbnail' does not exist on type 'Song'.
+src/app/settings/page.tsx(19,13): error TS2339: Property 'theme' does not exist on type 'ThemeContextType'.
+src/lib/recommendation.ts(92,23): error TS2339: Property 'originalTitle' does not exist on type 'Song'.
+src/lib/recommendation.ts(92,42): error TS2339: Property 'originalTitle' does not exist on type 'Song'.
+src/lib/recommendation.ts(124,16): error TS2339: Property 'originalTitle' does not exist on type 'Song'.
+src/lib/recommendation.ts(124,35): error TS2339: Property 'originalTitle' does not exist on type 'Song'.

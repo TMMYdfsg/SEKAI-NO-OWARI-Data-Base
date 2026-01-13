@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, RefreshCw } from "lucide-react";
+import { Search, Menu, X, RefreshCw } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { findCommand } from "@/lib/secret-commands";
 import { NoiseEffect } from "@/components/NoiseEffect";
@@ -10,9 +10,14 @@ import { unlockCommand, unlockAchievement } from "@/lib/local-storage-data";
 import { notifyAchievement } from "@/components/AchievementNotifier";
 import { hiddenCommandList } from "@/data/command-master";
 import { getAchievement } from "@/data/achievements-list";
+import GlobalSearch from "@/components/GlobalSearch";
+import SettingsModal from "@/components/SettingsModal";
+import { useTranslation } from "@/contexts/LanguageContext"; // Import hook
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [isSettingsOpen, setIsSettingsOpen] = useState(false);
     const [secretCommand, setSecretCommand] = useState("");
     const [libraryMode, setLibraryMode] = useState<"SONGS" | "LIVE">("SONGS");
     const [commandFeedback, setCommandFeedback] = useState<string | null>(null);
@@ -20,13 +25,42 @@ export default function Navbar() {
     const [noiseAttempts, setNoiseAttempts] = useState(0);
     const pathname = usePathname();
     const router = useRouter();
+    const { t } = useTranslation(); // Use hook
 
-    // Close menu when route changes
+    // Extra menu mode state
+    const [extraMenuMode, setExtraMenuMode] = useState<"ACHIEVEMENTS" | "HIDDEN COMMANDS">("ACHIEVEMENTS");
+
+    const toggleExtraMenuMode = () => {
+        const newMode = extraMenuMode === "ACHIEVEMENTS" ? "HIDDEN COMMANDS" : "ACHIEVEMENTS";
+        setExtraMenuMode(newMode);
+    };
+
+    const navItems = [
+        { name: t('navbar.home'), href: "/" },
+        { name: "For You", href: "/recommend" },
+        { name: "Themes", href: "/themes" },
+        { name: t('navbar.discography'), href: "/discography" },
+        { name: t('navbar.profile'), href: "/members" },
+        { name: t('navbar.history'), href: "/history" },
+        { name: libraryMode === "SONGS" ? t('navbar.songs') : t('navbar.live'), href: libraryMode === "SONGS" ? "/songs" : "/live", isToggle: true, isLibraryToggle: true },
+        { name: t('navbar.videos'), href: "/videos" },
+        { name: t('navbar.gallery'), href: "/gallery" },
+        { name: t('navbar.goods'), href: "/goods" },
+        { name: t('navbar.settings'), href: "#", onClick: () => { setIsSettingsOpen(true); setIsOpen(false); } },
+        { name: extraMenuMode, href: extraMenuMode === "ACHIEVEMENTS" ? "/achievements" : "/settings/commands", isToggle: true, isMenuToggle: true },
+    ];
+
+    // Keyboard Shortcut for Search (Cmd+K / Ctrl+K)
     useEffect(() => {
-        setIsOpen(false);
-        setSecretCommand("");
-        setCommandFeedback(null);
-    }, [pathname]);
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                setIsSearchOpen(true);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
 
     // Load library mode preference
     useEffect(() => {
@@ -50,7 +84,6 @@ export default function Navbar() {
         localStorage.setItem("sekaowa_library_mode", newMode);
     };
 
-    // ... inside component
     const [noWarSeq, setNoWarSeq] = useState<string[]>([]);
     const [errorSeq, setErrorSeq] = useState<string[]>([]); // E-R-R-O-R sequence
 
@@ -107,27 +140,7 @@ export default function Navbar() {
         }
     };
 
-    const [extraMenuMode, setExtraMenuMode] = useState<"ACHIEVEMENTS" | "HIDDEN COMMANDS">("ACHIEVEMENTS");
 
-    const toggleExtraMenuMode = () => {
-        const newMode = extraMenuMode === "ACHIEVEMENTS" ? "HIDDEN COMMANDS" : "ACHIEVEMENTS";
-        setExtraMenuMode(newMode);
-    };
-
-    const navItems = [
-        { name: "HOME", href: "/" },
-        { name: "DISCOGRAPHY", href: "/discography" },
-        { name: "PROFILE", href: "/members" },
-        { name: "HISTORY", href: "/history" },
-        { name: libraryMode, href: libraryMode === "SONGS" ? "/songs" : "/live", isToggle: true, isLibraryToggle: true },
-        { name: "VIDEOS", href: "/videos" },
-        { name: "GALLERY", href: "/gallery" },
-        { name: "GOODS", href: "/goods" },
-        { name: "SETTINGS", href: "/settings" },
-        { name: extraMenuMode, href: extraMenuMode === "ACHIEVEMENTS" ? "/achievements" : "/settings/commands", isToggle: true, isMenuToggle: true },
-    ];
-
-    // Imports moved to top
 
     const handleSecretCommand = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter" && secretCommand.trim()) {
@@ -168,22 +181,15 @@ export default function Navbar() {
                     "FANTASY": 10,
                     "SLEEP": 22,
                     "MAGIC": 36, // Also 5 for puzzle
-                    //"LIKE A SCENT": 66, // Needs to be added to lyricsCommands
                 };
 
-                // Check direct match or if it's a lyric command that matches the key
                 let achId = achMap[upperCmd];
                 // For lyrics, `command.command` in `secret-commands.ts` are the lyrics themselves.
-                // We need to match the "keyword" represented by the lyric.
-                // This is a bit tricky. 
-                // Let's rely on the `action` or `description`? 
-                // Or checking `masterCmd?.id`.
                 if (masterCmd) {
                     if (masterCmd.id === "lyric_fantasy") achId = 10;
                     if (masterCmd.id === "lyric_sleep") achId = 22;
                     if (masterCmd.id === "lyric_magic") achId = 36;
                     if (masterCmd.id === "cmd_sos") achId = 39;
-                    // ... map others via ID
                 }
 
                 if (achId) {
@@ -192,18 +198,15 @@ export default function Navbar() {
                         if (ach) notifyAchievement(ach.title);
                     }
                 }
-                // ---------------------------------------------
 
                 switch (command.action) {
                     case "show_discovery":
-                        // Navigate to song discovery page
                         router.push(
                             `/song-discovery?song=${encodeURIComponent(command.songTitle)}&desc=${encodeURIComponent(command.description)}${command.albumId ? `&album=${command.albumId}` : ''}`
                         );
                         break;
 
                     case "show_gallery":
-                        // Grant secret access and go to gallery
                         localStorage.setItem("sekaowa_gallery_secret", "true");
                         router.push("/gallery");
                         break;
@@ -213,7 +216,6 @@ export default function Navbar() {
                             localStorage.setItem("sekaowa_gallery_secret", "true");
                             router.push("/rare");
                         } else if (command.command.toLowerCase() === "shuffle") {
-                            // Trigger shuffle mode - will be handled by player
                             router.push("/songs?shuffle=true");
                         } else if (command.command.toLowerCase() === "quiz") {
                             router.push("/quiz");
@@ -232,14 +234,12 @@ export default function Navbar() {
                     setCommandFeedback(null);
                 }, 500);
             } else {
-                // Check for year commands (e.g., "2015" plays songs from that year)
                 const yearMatch = secretCommand.match(/^(20[0-2][0-9])$/);
                 if (yearMatch) {
                     router.push(`/songs?year=${yearMatch[1]}`);
                     setIsOpen(false);
                     setSecretCommand("");
                 } else {
-                    // 不正コマンド → ノイズ演出発動！
                     setShowNoiseEffect(true);
                     setNoiseAttempts(prev => prev + 1);
                 }
@@ -254,15 +254,30 @@ export default function Navbar() {
 
     return (
         <>
-            {/* Fixed Header with Hamburger */}
-            <nav className="fixed top-0 right-0 z-50 p-6 flex justify-end w-full pointer-events-none">
+            {/* Fixed Header with Hamburger & Search */}
+            <nav className="fixed top-0 right-0 z-50 p-6 flex justify-end items-center gap-4 w-full pointer-events-none">
+                {/* Search Button */}
+                <button
+                    onClick={() => setIsSearchOpen(true)}
+                    className="pointer-events-auto p-2 rounded-full bg-black/20 hover:bg-black/40 text-white/80 hover:text-white transition-all backdrop-blur-md border border-white/5 hover:border-white/20 z-50 group"
+                    title="Search (Cmd+K)"
+                >
+                    <Search size={20} className="group-hover:scale-110 transition-transform" />
+                </button>
+
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="pointer-events-auto text-white hover:text-primary transition-colors focus:outline-none z-50"
+                    className="pointer-events-auto text-white hover:text-primary transition-colors focus:outline-none z-50 p-2"
                 >
                     {isOpen ? <X size={32} /> : <Menu size={32} className="text-white/80" />}
                 </button>
             </nav>
+
+            {/* Global Search Modal */}
+            <GlobalSearch isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+
+            {/* Settings Modal */}
+            <SettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
 
             {/* Full-screen Overlay */}
             <div
@@ -271,7 +286,7 @@ export default function Navbar() {
             >
                 <div className="max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
                     {/* Left: Branding */}
-                    <div className="hidden md:flex flex-col justify-center border-r border-white/10 pr-12">
+                    <div className="flex flex-col justify-center border-r-0 md:border-r border-white/10 md:pr-12 text-center md:text-left">
                         <h1 className="text-7xl font-thin tracking-wider font-serif text-white/90 leading-tight select-none">
                             S
                             <span
@@ -321,17 +336,28 @@ export default function Navbar() {
                         <h2 className="text-muted-foreground text-sm tracking-widest mb-4">CONTENTS:</h2>
                         {navItems.map((item) => (
                             <div key={item.name} className="flex items-center gap-3">
-                                <Link
-                                    href={item.href}
-                                    className={`text-3xl sm:text-4xl md:text-5xl font-light tracking-wide hover:text-white hover:pl-4 transition-all duration-300 font-sans ${
-                                        // @ts-ignore
-                                        item.isLibraryToggle && libraryMode === "LIVE"
-                                            ? "text-blue-400/70 hover:text-blue-400"
-                                            : "text-white/50"
-                                        }`}
-                                >
-                                    {item.name}
-                                </Link>
+                                {item.onClick ? (
+                                    <button
+                                        onClick={item.onClick}
+                                        className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide hover:text-white hover:pl-4 transition-all duration-300 font-sans text-white/50 text-left"
+                                    >
+                                        {item.name}
+                                    </button>
+                                ) : (
+                                    <Link
+                                        href={item.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className={`text-3xl sm:text-4xl md:text-5xl font-light tracking-wide hover:text-white hover:pl-4 transition-all duration-300 font-sans ${
+                                            // @ts-ignore
+                                            item.isLibraryToggle && libraryMode === "LIVE"
+                                                ? "text-blue-400/70 hover:text-blue-400"
+                                                : "text-white/50"
+                                            }`}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                )}
+
                                 {item.isToggle && (
                                     <button
                                         onClick={(e) => {

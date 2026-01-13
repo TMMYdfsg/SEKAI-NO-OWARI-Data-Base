@@ -8,5 +8,41 @@
     "id": "goods-1767979452984-ewtcwqs",
     "createdAt": "2026-01-09T17:24:12.984Z",
     "updatedAt": "2026-01-09T17:24:12.984Z"
+  },
+  {
+    "name": "Test Goods 123",
+    "type": "Other",
+    "imagePaths": [],
+    "tags": [],
+    "isFavorite": false,
+    "id": "goods-1768229480851-1lfm9zb",
+    "createdAt": "2026-01-12T14:51:20.852Z",
+    "updatedAt": "2026-01-12T15:03:08.726Z",
+    "acquisitionDate": "",
+    "description": ""
+  },
+  {
+    "name": "Test Goods",
+    "type": "Other",
+    "imagePaths": [],
+    "tags": [
+      "testtag"
+    ],
+    "isFavorite": false,
+    "id": "goods-1768230296973-rvefquu",
+    "createdAt": "2026-01-12T15:04:56.973Z",
+    "updatedAt": "2026-01-12T15:08:48.079Z",
+    "acquisitionDate": "",
+    "description": "",
+    "price": 100
+  },
+  {
+    "name": "API Test Item",
+    "type": "Goods",
+    "description": "Test via API",
+    "price": 999,
+    "id": "goods-1768231404822-ogot963",
+    "createdAt": "2026-01-12T15:23:24.822Z",
+    "updatedAt": "2026-01-12T15:23:24.823Z"
   }
 ]

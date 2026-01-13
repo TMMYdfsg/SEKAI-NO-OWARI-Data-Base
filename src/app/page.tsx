@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ChevronRight, RefreshCw, Calendar as CalendarIcon, Lightbulb, Trophy, Medal, Settings, Eye, EyeOff, Music2, Play } from "lucide-react";
+import { ChevronRight, RefreshCw, Calendar as CalendarIcon, Lightbulb, Trophy, Medal, Settings, Eye, EyeOff, Music2, Play, Gamepad2, BarChart3, Clock } from "lucide-react";
 import MediaPlayer from "@/components/MediaPlayer";
-import { getBadges, getUnlockedAchievements } from "@/lib/local-storage-data";
+import { getBadges, getUnlockedAchievements, getPlayHistory } from "@/lib/local-storage-data";
 import { usePlayer } from "@/contexts/PlayerContext";
 
 type MediaFile = {
@@ -54,13 +54,17 @@ export default function Home() {
   const [achievementCount, setAchievementCount] = useState(0);
   const [showSettings, setShowSettings] = useState(false);
   const [dailySong, setDailySong] = useState<MediaFile | null>(null);
+  const [playStats, setPlayStats] = useState<{ totalPlays: number; recentPlays: number; topSong: string | null }>({ totalPlays: 0, recentPlays: 0, topSong: null });
 
   // Default widget configuration
   const defaultWidgets: WidgetConfig[] = [
     { id: 'media', label: '最近のメディア', visible: true, order: 0 },
-    { id: 'trivia', label: '今日の豆知識', visible: true, order: 1 },
-    { id: 'calendar', label: 'カレンダー', visible: true, order: 2 },
-    { id: 'recommendation', label: 'おすすめ', visible: true, order: 3 },
+    { id: 'aidj', label: 'AI DJ (Beta)', visible: true, order: 1 },
+    { id: 'quiz', label: 'クイズ', visible: true, order: 2 },
+    { id: 'stats', label: '再生統計', visible: true, order: 3 },
+    { id: 'trivia', label: '今日の豆知識', visible: true, order: 4 },
+    { id: 'calendar', label: 'カレンダー', visible: true, order: 5 },
+    { id: 'recommendation', label: 'おすすめ', visible: true, order: 6 },
   ];
 
   const [widgets, setWidgets] = useState<WidgetConfig[]>(defaultWidgets);
@@ -96,6 +100,25 @@ export default function Home() {
     // Load User Data
     setBadges(getBadges());
     setAchievementCount(getUnlockedAchievements().length);
+
+    // Load Play Statistics
+    const history = getPlayHistory();
+    const now = Date.now();
+    const oneWeekAgo = now - 7 * 24 * 60 * 60 * 1000;
+    const recentPlays = history.filter(h => h.playedAt > oneWeekAgo).length;
+
+    // Find top song
+    const songCounts: Record<string, number> = {};
+    history.forEach(h => {
+      songCounts[h.title] = (songCounts[h.title] || 0) + 1;
+    });
+    const topSong = Object.entries(songCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
+
+    setPlayStats({
+      totalPlays: history.length,
+      recentPlays,
+      topSong
+    });
 
     // Load widget settings
     const saved = localStorage.getItem(WIDGETS_KEY);
@@ -228,6 +251,76 @@ export default function Home() {
           </div>
         )}
 
+        {/* AI DJ Widget (New) */}
+        {sortedWidgets.find(w => w.id === 'aidj')?.visible && (
+          <Link href="/recommend/dj" className="block relative group overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-purple-900/40 via-blue-900/40 to-black hover:border-primary/50 transition-all duration-300">
+            <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
+
+            <div className="relative p-6 flex items-center justify-between gap-4">
+              <div className="space-y-2">
+                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider border border-primary/30">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                  New Feature
+                </div>
+                <h2 className="text-xl font-bold text-white font-serif">AI DJ "Love"</h2>
+                <p className="text-xs text-muted-foreground">今の気分を伝えて、プレイリストを作成。</p>
+              </div>
+
+              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/20 transition-colors border border-white/5">
+                <Music2 size={24} className="text-primary group-hover:scale-110 transition-transform" />
+              </div>
+            </div>
+          </Link>
+        )}
+
+        {/* Quiz Shortcut Widget */}
+        {sortedWidgets.find(w => w.id === 'quiz')?.visible && (
+          <Link href="/quiz" className="block relative group overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-green-900/30 via-emerald-900/30 to-black hover:border-green-500/50 transition-all duration-300">
+            <div className="absolute inset-0 bg-green-500/5 group-hover:bg-green-500/10 transition-colors" />
+
+            <div className="relative p-5 flex items-center justify-between gap-4">
+              <div className="space-y-1">
+                <h2 className="text-lg font-bold text-white font-serif flex items-center gap-2">
+                  <Gamepad2 size={18} className="text-green-400" />
+                  クイズに挑戦
+                </h2>
+                <p className="text-xs text-muted-foreground">イントロクイズ、歌詞クイズ、タイピングなど</p>
+              </div>
+
+              <ChevronRight size={20} className="text-green-400 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+        )}
+
+        {/* Play Stats Widget */}
+        {sortedWidgets.find(w => w.id === 'stats')?.visible && (
+          <div className="bg-card/30 border border-white/5 rounded-2xl overflow-hidden backdrop-blur-sm">
+            <div className="px-6 py-4 border-b border-white/5 flex items-center gap-2 bg-white/5">
+              <BarChart3 size={16} className="text-primary" />
+              <h2 className="text-sm text-white/80 font-medium">再生統計</h2>
+            </div>
+            <div className="p-6 grid grid-cols-3 gap-4">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white">{playStats.totalPlays}</div>
+                <div className="text-[10px] text-muted-foreground uppercase tracking-wider mt-1">Total Plays</div>
+              </div>
+              <div className="text-center border-x border-white/10">
+                <div className="text-2xl font-bold text-primary">{playStats.recentPlays}</div>
+                <div className="text-[10px] text-muted-foreground uppercase tracking-wider mt-1 flex items-center justify-center gap-1">
+                  <Clock size={10} />
+                  This Week
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-sm font-medium text-white truncate px-1" title={playStats.topSong || '-'}>
+                  {playStats.topSong ? playStats.topSong.substring(0, 12) + (playStats.topSong.length > 12 ? '...' : '') : '-'}
+                </div>
+                <div className="text-[10px] text-muted-foreground uppercase tracking-wider mt-1">Top Song</div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Trivia Widget */}
         {sortedWidgets.find(w => w.id === 'trivia')?.visible && (
           <div className="bg-card/30 border border-white/5 rounded-2xl overflow-hidden backdrop-blur-sm group">
@@ -304,7 +397,7 @@ export default function Home() {
                     )}
 
                     <button
-                      onClick={() => playSong(dailySong)}
+                      onClick={() => playSong({ ...dailySong, category: dailySong.category || "Recommendation" })}
                       className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     >
                       <Play size={32} className="text-white fill-white" />
@@ -319,7 +412,7 @@ export default function Home() {
                   </div>
 
                   <button
-                    onClick={() => playSong(dailySong)}
+                    onClick={() => playSong({ ...dailySong, category: dailySong.category || "Recommendation" })}
                     className="mt-6 px-6 py-2 bg-white/10 hover:bg-white/20 text-white text-xs rounded-full transition-colors flex items-center gap-2"
                   >
                     <Play size={12} fill="currentColor" />

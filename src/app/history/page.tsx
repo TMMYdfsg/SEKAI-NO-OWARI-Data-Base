@@ -7,7 +7,11 @@ import {
 } from "lucide-react";
 import { history, HistoryEvent } from "@/data/history";
 import { unlockAchievement } from "@/lib/local-storage-data";
-import HistoryMap from "@/components/HistoryMap";
+import dynamic from "next/dynamic";
+const HistoryMap = dynamic(() => import("@/components/HistoryMap"), {
+    ssr: false,
+    loading: () => <div className="h-[600px] w-full bg-slate-800/50 animate-pulse rounded-xl" />
+});
 import HistoryStats from "@/components/HistoryStats";
 
 type ViewMode = "Timeline" | "Map" | "Stats";
@@ -178,7 +182,6 @@ export default function HistoryPage() {
                                     max={maxYear}
                                     value={selectedYear || maxYear}
                                     onChange={handleSliderChange}
-                                    orient="vertical"
                                     className="h-64 w-1 appearance-none bg-white/20 rounded-full cursor-pointer accent-primary [writing-mode:bt-lr] [-webkit-appearance:slider-vertical]"
                                 />
                                 <span className="text-xs font-bold text-muted-foreground">{minYear}</span>

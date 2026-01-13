@@ -16,7 +16,7 @@ interface AppSettings {
 }
 
 export default function SettingsPage() {
-    const { theme, setTheme } = useTheme();
+    const { themeId, setTheme } = useTheme();
     const [settings, setSettings] = useState<AppSettings>({
         albumArtPath: "",
         language: "ja",
@@ -161,7 +161,7 @@ export default function SettingsPage() {
                                     <button
                                         key={option.value}
                                         onClick={() => setTheme(option.value)}
-                                        className={`flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all ${theme === option.value
+                                        className={`flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all ${themeId === option.value
                                             ? "border-primary bg-primary/10"
                                             : "border-transparent hover:bg-white/5"
                                             }`}
@@ -181,7 +181,7 @@ export default function SettingsPage() {
                                     <button
                                         key={option.value}
                                         onClick={() => setTheme(option.value)}
-                                        className={`flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all ${theme === option.value
+                                        className={`flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all ${themeId === option.value
                                             ? "border-primary bg-primary/10"
                                             : "border-transparent hover:bg-white/5"
                                             }`}
