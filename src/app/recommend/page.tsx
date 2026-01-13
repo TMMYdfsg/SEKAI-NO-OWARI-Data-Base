@@ -12,10 +12,16 @@ export default function RecommendationPage() {
     const [recommendations, setRecommendations] = useState<Recommendation[]>([]);
     const [moodPlaylist, setMoodPlaylist] = useState<Song[]>([]);
     const [activeMood, setActiveMood] = useState<string | null>(null);
+    const [localFiles, setLocalFiles] = useState<any[]>([]); // Add localFiles state
     const { playSong } = usePlayer();
 
     useEffect(() => {
         setRecommendations(getRecommendations());
+        // Fetch local files
+        fetch("/api/files")
+            .then(res => res.json())
+            .then(data => setLocalFiles(data.files || []))
+            .catch(console.error);
     }, []);
 
     const handleMoodSelect = (mood: "uplifting" | "calm" | "dark" | "fantasy", label: string) => {
@@ -23,14 +29,23 @@ export default function RecommendationPage() {
         setMoodPlaylist(getMoodPlaylist(mood));
     };
 
-    const toTrack = (song: Song) => ({
-        name: song.title,
-        path: `${song.id}.mp3`, // Assume file name matches ID
-        type: "audio/mp3",
-        category: song.category,
-        thumbnail: `/api/album-art/${encodeURIComponent(song.album)}`,
-        album: song.album
-    });
+    const toTrack = (song: Song) => {
+        // Find matching local file
+        const normalizedTitle = song.title.toLowerCase().replace(/[\s\u3000]+/g, '');
+        const match = localFiles.find(f => {
+            const fName = f.name.replace(/\.[^/.]+$/, "").toLowerCase().replace(/[\s\u3000]+/g, '');
+            return fName.includes(normalizedTitle) || normalizedTitle.includes(fName) || f.name.includes(song.id);
+        });
+
+        return {
+            name: song.title,
+            path: match ? match.path : `${song.id}.mp3`, // Fallback
+            type: match ? match.type : "audio/mp3",
+            category: match ? match.category : song.category,
+            thumbnail: `/api/album-art/${encodeURIComponent(song.album)}`,
+            album: song.album
+        };
+    };
 
     const playAll = (songs: Song[]) => {
         if (songs.length > 0) {

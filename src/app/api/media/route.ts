@@ -15,8 +15,11 @@ export async function GET(request: NextRequest) {
     // Determine the root directory based on source
     const rootDir = source === 'gallery' ? GALLERY_ROOT : MEDIA_ROOT;
 
+    // Normalize filename to handle Windows backslashes if passed in URL
+    const normalizedFilename = filename.replace(/\\/g, '/');
+
     // Securely resolve the file path, allowing subdirectories
-    const filePath = path.resolve(rootDir, filename);
+    const filePath = path.resolve(rootDir, normalizedFilename);
 
     // Ensure the resolved path is within the allowed directory
     // Also check if it's in GALLERY_ROOT for gallery images without explicit source param
@@ -27,7 +30,7 @@ export async function GET(request: NextRequest) {
     let finalPath = filePath;
     if (!isInMediaRoot && !isInGalleryRoot) {
         // Try gallery root as fallback for image files
-        const ext = path.extname(filename).toLowerCase();
+        const ext = path.extname(normalizedFilename).toLowerCase();
         if (IMAGE_EXTENSIONS.includes(ext)) {
             const galleryPath = path.resolve(GALLERY_ROOT, filename);
             console.log(`[Debug] Checking fallback gallery path: ${galleryPath}`);

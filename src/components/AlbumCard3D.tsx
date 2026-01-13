@@ -17,10 +17,11 @@ interface AlbumCard3DProps {
     album: Discography;
     localFiles: LocalFile[];
     onPlayTrack: (trackTitle: string, albumTitle: string) => void;
+    onPlayAlbum: (album: Discography) => void;
     findLocalFile: (trackTitle: string) => LocalFile | null;
 }
 
-export default function AlbumCard3D({ album, localFiles, onPlayTrack, findLocalFile }: AlbumCard3DProps) {
+export default function AlbumCard3D({ album, localFiles, onPlayTrack, onPlayAlbum, findLocalFile }: AlbumCard3DProps) {
     const [isFlipped, setIsFlipped] = useState(false);
     const allTracks = album.discs.flatMap(disc => disc.tracks);
 
@@ -69,10 +70,10 @@ export default function AlbumCard3D({ album, localFiles, onPlayTrack, findLocalF
                     </button>
 
                     {/* Album Cover */}
-                    <div className="relative aspect-square bg-gradient-to-br from-primary/20 to-secondary/20">
+                    <div className="relative aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 group">
                         {album.coverImage ? (
                             <div
-                                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-105"
+                                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
                                 style={{ backgroundImage: `url(${album.coverImage})` }}
                             />
                         ) : (
@@ -80,6 +81,20 @@ export default function AlbumCard3D({ album, localFiles, onPlayTrack, findLocalF
                                 <Disc3 size={80} className="text-white/10 animate-spin-slow" />
                             </div>
                         )}
+
+                        {/* Play Album Button - shows on hover */}
+                        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    onPlayAlbum(album);
+                                }}
+                                className="p-6 bg-primary rounded-full hover:bg-primary/90 hover:scale-110 transition-all duration-300 shadow-2xl shadow-primary/50"
+                                title="アルバム全体を再生"
+                            >
+                                <Play size={32} className="text-white fill-white" />
+                            </button>
+                        </div>
 
                         {/* Gradient Overlay */}
                         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent p-6 pt-24">

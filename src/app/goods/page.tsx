@@ -57,7 +57,7 @@ export default function GoodsPage() {
                         body: JSON.stringify({
                             sessionId: "debug-session",
                             runId: "pre-fix",
-                        hypothesisId: "goods-H2",
+                            hypothesisId: "goods-H2",
                             location: "src/app/goods/page.tsx:useEffect",
                             message: "GoodsPage fetch response",
                             data: { status: res.status },
@@ -73,13 +73,17 @@ export default function GoodsPage() {
             })
             .then((data) => {
                 // データ検証とデフォルト値の設定
-                const validatedData = Array.isArray(data) ? data.map(item => ({
+                const validatedData = Array.isArray(data) ? data.filter(item => item && typeof item === 'object').map(item => ({
                     ...item,
+                    name: item.name || '名称不明',
+                    type: item.type || 'Other',
                     createdAt: item.createdAt || new Date().toISOString(),
                     updatedAt: item.updatedAt || new Date().toISOString(),
                     isFavorite: item.isFavorite ?? false,
-                    tags: item.tags || [],
-                    imagePaths: item.imagePaths || []
+                    tags: Array.isArray(item.tags) ? item.tags : [],
+                    imagePaths: Array.isArray(item.imagePaths) ? item.imagePaths : [],
+                    description: item.description || '',
+                    price: item.price ?? 0 // 価格がない場合のデフォルト
                 })) : [];
 
                 // #region agent log

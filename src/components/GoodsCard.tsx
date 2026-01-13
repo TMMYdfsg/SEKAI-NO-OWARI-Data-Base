@@ -25,11 +25,12 @@ export default function GoodsCard({ goods, onClick }: GoodsCardProps) {
     // データの安全性を確認
     if (!goods) return null;
 
-    const safeTags = Array.isArray(goods.tags) ? goods.tags : [];
-    const safeImagePaths = Array.isArray(goods.imagePaths) ? goods.imagePaths : [];
+    const safeTags = Array.isArray(goods?.tags) ? goods.tags : [];
+    const safeImagePaths = Array.isArray(goods?.imagePaths) ? goods.imagePaths : [];
 
     // typeColorの取得には安全なgoods.typeを使用（未定義の場合はOther）
-    const typeColor = goodsTypeColors[goods.type] || goodsTypeColors['Other'];
+    const typeKey = goods?.type || 'Other';
+    const typeColor = goodsTypeColors[typeKey] || goodsTypeColors['Other'];
     const primaryImage = safeImagePaths[0];
 
 
@@ -84,7 +85,7 @@ export default function GoodsCard({ goods, onClick }: GoodsCardProps) {
 
             {/* Info */}
             <div className="p-4 bg-card/95 backdrop-blur-sm">
-                {goods.description && (
+                {goods?.description && (
                     <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
                         {goods.description}
                     </p>

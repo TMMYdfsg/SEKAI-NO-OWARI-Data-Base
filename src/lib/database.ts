@@ -7,7 +7,7 @@ const DATA_DIR = path.join(process.cwd(), 'data', 'db');
 
 // コレクション名の型定義
 // コレクション名の型定義
-export type CollectionName = 'history' | 'songs' | 'discography' | 'tags' | 'members' | 'settings' | 'playHistory' | 'favorites' | 'goods' | 'gallery_metadata';
+export type CollectionName = 'history' | 'songs' | 'discography' | 'tags' | 'members' | 'settings' | 'playHistory' | 'favorites' | 'goods' | 'gallery_metadata' | 'users';
 
 // メモリキャッシュ
 const cache: Map<string, unknown[]> = new Map();

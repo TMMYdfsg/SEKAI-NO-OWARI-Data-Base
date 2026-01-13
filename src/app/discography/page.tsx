@@ -131,10 +131,12 @@ export default function DiscographyPage() {
 
     // Find a local file matching the track name (Original category only)
     const findLocalFile = (trackTitle: string): LocalFile | null => {
-        const normalizedTrack = trackTitle.toLowerCase().trim();
-        // Only match files from "Original" category
-        return localFiles.filter(file => file.category === "Original").find(file => {
-            const fileName = file.name.replace(/\.[^/.]+$/, "").toLowerCase().trim();
+        const normalizedTrack = trackTitle.toLowerCase().replace(/[\s\u3000]+/g, '').trim();
+
+        // Search in all categories, but prioritize Original if needed, or just return first match
+        // Broaden search to include matches where filename contains track title or vice versa
+        return localFiles.find(file => {
+            const fileName = file.name.replace(/\.[^/.]+$/, "").toLowerCase().replace(/[\s\u3000]+/g, '').trim();
             return fileName === normalizedTrack || fileName.includes(normalizedTrack) || normalizedTrack.includes(fileName);
         }) || null;
     };
@@ -394,13 +396,14 @@ export default function DiscographyPage() {
                                 album={album}
                                 localFiles={localFiles}
                                 onPlayTrack={handlePlayTrack}
+                                onPlayAlbum={playAlbum}
                                 findLocalFile={findLocalFile}
                             />
                         ))}
                     </div>
                 ) : viewMode === 'timeline' ? (
                     <div className="fade-in-up">
-                        <VisualTimeline albums={filteredAlbums} />
+                        <VisualTimeline albums={filteredAlbums} onPlayAlbum={playAlbum} />
                     </div>
                 ) : (
                     /* List View */
@@ -408,10 +411,9 @@ export default function DiscographyPage() {
                         {filteredAlbums.map((album) => {
                             const allTracks = album.discs.flatMap(disc => disc.tracks);
                             return (
-                                <Link
+                                <div
                                     key={album.id}
-                                    href={`/discography/${album.id}`}
-                                    className="flex items-center gap-6 bg-card/70 border border-white/5 rounded-xl p-4 hover:border-primary/50 transition-all duration-300 group"
+                                    className="flex items-center gap-4 bg-card/70 border border-white/5 rounded-xl p-4 hover:border-primary/50 transition-all duration-300 group"
                                 >
                                     {/* Album Cover Thumbnail */}
                                     <div className="w-20 h-20 shrink-0 rounded-lg overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20">
@@ -427,8 +429,11 @@ export default function DiscographyPage() {
                                         )}
                                     </div>
 
-                                    {/* Album Info */}
-                                    <div className="flex-1 min-w-0">
+                                    {/* Album Info - now wrapped in Link */}
+                                    <Link
+                                        href={`/discography/${album.id}`}
+                                        className="flex-1 min-w-0"
+                                    >
                                         <div className="flex items-center gap-3 mb-1">
                                             <h2 className="text-lg font-bold font-serif truncate group-hover:text-primary transition-colors">
                                                 {album.title}
@@ -463,11 +468,25 @@ export default function DiscographyPage() {
                                                 ))}
                                             </div>
                                         )}
-                                    </div>
+                                    </Link>
 
-                                    {/* Arrow */}
-                                    <ExternalLink size={18} className="text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
-                                </Link>
+                                    {/* Play Button */}
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            playAlbum(album);
+                                        }}
+                                        className="p-3 bg-primary/20 hover:bg-primary/30 rounded-full transition-all duration-300 hover:scale-110 shrink-0 group/play"
+                                        title="アルバムを再生"
+                                    >
+                                        <Play size={20} className="text-primary group-hover/play:scale-110 transition-transform" />
+                                    </button>
+
+                                    {/* Detail Link Arrow */}
+                                    <Link href={`/discography/${album.id}`}>
+                                        <ExternalLink size={18} className="text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                                    </Link>
+                                </div>
                             );
                         })}
                     </div>

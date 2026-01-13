@@ -7,9 +7,10 @@ import Link from "next/link";
 
 interface VisualTimelineProps {
     albums: Discography[];
+    onPlayAlbum?: (album: Discography) => void;
 }
 
-export default function VisualTimeline({ albums }: VisualTimelineProps) {
+export default function VisualTimeline({ albums, onPlayAlbum }: VisualTimelineProps) {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const [selectedAlbum, setSelectedAlbum] = useState<Discography | null>(null);
 
@@ -183,13 +184,25 @@ export default function VisualTimeline({ albums }: VisualTimelineProps) {
                                 </div>
                             </div>
 
-                            <div className="mt-8 pt-6 border-t border-white/10">
+                            <div className="mt-8 pt-6 border-t border-white/10 flex gap-3">
+                                {onPlayAlbum && (
+                                    <button
+                                        onClick={() => {
+                                            onPlayAlbum(selectedAlbum);
+                                            setSelectedAlbum(null);
+                                        }}
+                                        className="flex-1 inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors justify-center font-medium"
+                                    >
+                                        <Play size={18} fill="currentColor" />
+                                        Play Album
+                                    </button>
+                                )}
                                 <Link
-                                    href={`/songs?search=${encodeURIComponent(selectedAlbum.title)}`}
-                                    className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors w-full justify-center font-medium"
+                                    href={`/discography/${selectedAlbum.id}`}
+                                    className="flex-1 inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white rounded-lg hover:bg-white/20 transition-colors justify-center font-medium"
                                 >
-                                    <Play size={18} fill="currentColor" />
-                                    Play Album
+                                    <ChevronRight size={18} />
+                                    Details
                                 </Link>
                             </div>
                         </div>
