@@ -17,8 +17,8 @@ If InStr(result, "3000") > 0 Then
     ' 既に起動中 - ブラウザを開くだけ
     WshShell.Run "http://localhost:3000", 1, False
 Else
-    ' サーバーを起動（ウィンドウを最小化）
-    WshShell.Run "cmd /c npm start", 7, False
+    ' サーバーを起動（ウィンドウを最小化）- 開発用の npm run dev を使用
+    WshShell.Run "cmd /c npm run dev", 7, False
     
     ' サーバーの起動を待つ（最大30秒）
     For i = 1 To 30

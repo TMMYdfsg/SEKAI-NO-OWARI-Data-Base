@@ -4,7 +4,6 @@ import { exportData, importData } from '@/lib/backup';
 import { clearApiCache } from '@/lib/api-cache';
 import { useTranslation } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
-import AuthStatus from './auth/AuthStatus';
 
 type SettingsModalProps = {
     isOpen: boolean;
@@ -140,12 +139,6 @@ export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                         {t('settings.general')}
                     </button>
                     <button
-                        className={`flex-1 py-3 text-sm font-medium transition-colors ${activeTab === 'account' ? 'text-primary border-b-2 border-primary' : 'text-muted-foreground hover:text-white'}`}
-                        onClick={() => setActiveTab('account')}
-                    >
-                        Account
-                    </button>
-                    <button
                         className={`flex-1 py-3 text-sm font-medium transition-colors ${activeTab === 'paths' ? 'text-primary border-b-2 border-primary' : 'text-muted-foreground hover:text-white'}`}
                         onClick={() => setActiveTab('paths')}
                     >
@@ -278,13 +271,6 @@ export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                                     </button>
                                 </div>
                             </div>
-                        </div>
-                    )}
-
-                    {activeTab === 'account' && (
-                        <div className="space-y-6">
-                            <h3 className="text-white font-medium text-sm">ユーザーアカウント</h3>
-                            <AuthStatus />
                         </div>
                     )}
 

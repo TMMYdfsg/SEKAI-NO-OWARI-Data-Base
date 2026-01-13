@@ -2,6 +2,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import * as db from '@/lib/database';
 import type { CollectionName } from '@/lib/database';
+import fs from 'fs';
+
+const DEBUG_LOG_PATH = "c:\\Users\\tomoy\\Desktop\\program code\\SEKAI NO OWARI Data Base\\.cursor\\debug.log";
 
 // 許可されたコレクション
 const ALLOWED_COLLECTIONS: CollectionName[] = [
@@ -23,6 +26,23 @@ export async function GET(
 ) {
     try {
         const { collection } = await params;
+
+        // #region agent log
+        try {
+            const logEntry = {
+                sessionId: "debug-session",
+                runId: "pre-fix-2",
+                hypothesisId: "goods-API-H1",
+                location: "src/app/api/db/[collection]/route.ts:GET",
+                message: "DB API GET called",
+                data: { collection, url: request.nextUrl.toString() },
+                timestamp: Date.now(),
+            };
+            fs.appendFileSync(DEBUG_LOG_PATH, JSON.stringify(logEntry) + "\n");
+        } catch {
+            // ログ失敗は無視
+        }
+        // #endregion
 
         if (!isValidCollection(collection)) {
             return NextResponse.json(

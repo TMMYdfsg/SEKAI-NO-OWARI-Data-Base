@@ -4,7 +4,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import GlobalPlayer from "@/components/GlobalPlayer";
 import { PlayerProvider } from "@/contexts/PlayerContext";
-import { AuthProvider } from "@/contexts/AuthContext";
 import AchievementNotifier from "@/components/AchievementNotifier";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
@@ -40,18 +39,16 @@ export default function RootLayout({
         <ThemeProvider>
           <LanguageProvider>
             <PlayerProvider>
-              <AuthProvider>
-                <ServiceWorkerRegistration />
-                <AchievementNotifier />
-                <Navbar />
-                <main className="flex-grow pt-16 pb-24">
-                  {children}
-                </main>
-                <GlobalPlayer />
-                <footer className="border-t border-white/10 py-6 text-center text-sm text-muted-foreground bg-background/50">
-                  <p>© {new Date().getFullYear()} SEKAI NO OWARI Database / Unofficial Fan Site</p>
-                </footer>
-              </AuthProvider>
+              <ServiceWorkerRegistration />
+              <AchievementNotifier />
+              <Navbar />
+              <main className="flex-grow pt-16 pb-24">
+                {children}
+              </main>
+              <GlobalPlayer />
+              <footer className="border-t border-white/10 py-6 text-center text-sm text-muted-foreground bg-background/50">
+                <p>© {new Date().getFullYear()} SEKAI NO OWARI Database / Unofficial Fan Site</p>
+              </footer>
             </PlayerProvider>
           </LanguageProvider>
         </ThemeProvider>

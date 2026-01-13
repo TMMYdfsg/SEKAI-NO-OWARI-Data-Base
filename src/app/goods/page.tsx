@@ -20,6 +20,7 @@ export default function GoodsPage() {
     const router = useRouter();
     const [goods, setGoods] = useState<GoodsItem[]>([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
     const [filterType, setFilterType] = useState<string>("All");
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -28,8 +29,48 @@ export default function GoodsPage() {
 
     // Fetch goods
     useEffect(() => {
+        // #region agent log
+        if (typeof fetch !== "undefined") {
+            fetch("http://127.0.0.1:7242/ingest/350cd264-8f58-4a4d-bf74-c461e54d1562", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    sessionId: "debug-session",
+                    runId: "pre-fix",
+                    hypothesisId: "goods-H1",
+                    location: "src/app/goods/page.tsx:useEffect",
+                    message: "GoodsPage useEffect start",
+                    data: {},
+                    timestamp: Date.now(),
+                }),
+            }).catch(() => { });
+        }
+        // #endregion
+
         fetch("/api/db/goods")
-            .then((res) => res.json())
+            .then((res) => {
+                // #region agent log
+                if (typeof fetch !== "undefined") {
+                    fetch("http://127.0.0.1:7242/ingest/350cd264-8f58-4a4d-bf74-c461e54d1562", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            sessionId: "debug-session",
+                            runId: "pre-fix",
+                        hypothesisId: "goods-H2",
+                            location: "src/app/goods/page.tsx:useEffect",
+                            message: "GoodsPage fetch response",
+                            data: { status: res.status },
+                            timestamp: Date.now(),
+                        }),
+                    }).catch(() => { });
+                }
+                // #endregion
+                if (!res.ok) {
+                    throw new Error(`HTTP ${res.status}`);
+                }
+                return res.json();
+            })
             .then((data) => {
                 // データ検証とデフォルト値の設定
                 const validatedData = Array.isArray(data) ? data.map(item => ({
@@ -40,11 +81,51 @@ export default function GoodsPage() {
                     tags: item.tags || [],
                     imagePaths: item.imagePaths || []
                 })) : [];
+
+                // #region agent log
+                if (typeof fetch !== "undefined") {
+                    fetch("http://127.0.0.1:7242/ingest/350cd264-8f58-4a4d-bf74-c461e54d1562", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            sessionId: "debug-session",
+                            runId: "pre-fix",
+                            hypothesisId: "goods-H3",
+                            location: "src/app/goods/page.tsx:useEffect",
+                            message: "GoodsPage data validated",
+                            data: { count: validatedData.length },
+                            timestamp: Date.now(),
+                        }),
+                    }).catch(() => { });
+                }
+                // #endregion
+
                 setGoods(validatedData);
+                setError(null);
                 setLoading(false);
             })
             .catch((err) => {
                 console.error("Failed to load goods:", err);
+
+                // #region agent log
+                if (typeof fetch !== "undefined") {
+                    fetch("http://127.0.0.1:7242/ingest/350cd264-8f58-4a4d-bf74-c461e54d1562", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            sessionId: "debug-session",
+                            runId: "pre-fix",
+                            hypothesisId: "goods-H4",
+                            location: "src/app/goods/page.tsx:useEffect",
+                            message: "GoodsPage fetch error",
+                            data: { message: err instanceof Error ? err.message : String(err) },
+                            timestamp: Date.now(),
+                        }),
+                    }).catch(() => { });
+                }
+                // #endregion
+
+                setError(err instanceof Error ? err.message : String(err));
                 setLoading(false);
             });
     }, []);
@@ -142,6 +223,17 @@ export default function GoodsPage() {
         return (
             <div className="min-h-screen py-20 px-4 flex items-center justify-center">
                 <div className="animate-pulse text-primary">読み込み中...</div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="min-h-screen py-20 px-4 flex items-center justify-center">
+                <div className="text-center space-y-4">
+                    <p className="text-red-500">グッズ情報の読み込みに失敗しました。</p>
+                    <p className="text-sm text-muted-foreground">エラー内容: {error}</p>
+                </div>
             </div>
         );
     }
