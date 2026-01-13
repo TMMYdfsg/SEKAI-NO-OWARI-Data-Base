@@ -14,6 +14,9 @@ import GlobalSearch from "@/components/GlobalSearch";
 import SettingsModal from "@/components/SettingsModal";
 import { useTranslation } from "@/contexts/LanguageContext"; // Import hook
 
+
+import { useAuth } from "@/contexts/AuthContext"; // Import AuthContext
+
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -25,7 +28,8 @@ export default function Navbar() {
     const [noiseAttempts, setNoiseAttempts] = useState(0);
     const pathname = usePathname();
     const router = useRouter();
-    const { t } = useTranslation(); // Use hook
+    const { t } = useTranslation();
+    const { user, logout } = useAuth(); // Use AuthContext
 
     // Extra menu mode state
     const [extraMenuMode, setExtraMenuMode] = useState<"ACHIEVEMENTS" | "HIDDEN COMMANDS">("ACHIEVEMENTS");
@@ -40,12 +44,14 @@ export default function Navbar() {
         { name: "For You", href: "/recommend" },
         { name: "Themes", href: "/themes" },
         { name: t('navbar.discography'), href: "/discography" },
+        { name: "Games", href: "/games/typing" }, // Restore Games
         { name: t('navbar.profile'), href: "/members" },
         { name: t('navbar.history'), href: "/history" },
         { name: libraryMode === "SONGS" ? t('navbar.songs') : t('navbar.live'), href: libraryMode === "SONGS" ? "/songs" : "/live", isToggle: true, isLibraryToggle: true },
         { name: t('navbar.videos'), href: "/videos" },
         { name: t('navbar.gallery'), href: "/gallery" },
         { name: t('navbar.goods'), href: "/goods" },
+        { name: "Admin", href: "/admin" }, // Restore Admin
         { name: t('navbar.settings'), href: "#", onClick: () => { setIsSettingsOpen(true); setIsOpen(false); } },
         { name: extraMenuMode, href: extraMenuMode === "ACHIEVEMENTS" ? "/achievements" : "/settings/commands", isToggle: true, isMenuToggle: true },
     ];
@@ -385,9 +391,24 @@ export default function Navbar() {
                             </div>
                         ))}
 
-                        <div className="mt-12 pt-12 border-t border-white/10 flex gap-6 text-sm text-muted-foreground">
-                            <span>CONTACT</span>
-                            <span>CREDITS</span>
+                        <div className="mt-12 pt-12 border-t border-white/10 flex flex-col gap-4 text-sm text-muted-foreground">
+                            <div className="flex gap-6">
+                                <span>CONTACT</span>
+                                <span>CREDITS</span>
+                            </div>
+
+                            {/* User Info & Logout */}
+                            {user && (
+                                <div className="flex items-center justify-between text-xs text-white/40">
+                                    <span>Logged in as: <span className="text-white/70">{user.name}</span></span>
+                                    <button
+                                        onClick={() => logout()}
+                                        className="hover:text-red-400 transition-colors"
+                                    >
+                                        LOGOUT
+                                    </button>
+                                </div>
+                            )}
                         </div>
 
                         {/* Hidden Command Input */}

@@ -1,0 +1,2231 @@
+
+> app@0.1.0 dev
+> next dev -H 0.0.0.0
+
+笞 Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\tomoy\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\tomoy\Desktop\program code\SEKAI NO OWARI Data Base\package-lock.json
+
+笆ｲ Next.js 16.1.1 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://0.0.0.0:3000
+
+笨・Starting...
+笨・Ready in 2.5s
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 499ms (compile: 328ms, render: 171ms)
+笨・Compiled in 203ms
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 23ms (compile: 12ms, render: 11ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 22ms (compile: 13ms, render: 9ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 18ms (compile: 10ms, render: 8ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 9ms, render: 8ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 11ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 10ms, render: 6ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 18ms (compile: 11ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 21ms (compile: 12ms, render: 9ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 18ms (compile: 9ms, render: 9ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 16ms (compile: 9ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 10ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 16ms (compile: 10ms, render: 6ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 16ms (compile: 10ms, render: 6ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 16ms (compile: 10ms, render: 6ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 11ms, render: 6ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 10ms, render: 6ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 10ms, render: 6ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 26ms (compile: 11ms, render: 15ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 18ms (compile: 10ms, render: 8ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 21ms (compile: 14ms, render: 8ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 16ms (compile: 8ms, render: 8ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 9ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 19ms (compile: 9ms, render: 10ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 18ms (compile: 9ms, render: 10ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 28ms (compile: 15ms, render: 13ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 23ms (compile: 16ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 22ms (compile: 13ms, render: 9ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 18ms (compile: 10ms, render: 8ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 20ms (compile: 13ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 16ms (compile: 10ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 16ms (compile: 9ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 15ms (compile: 9ms, render: 6ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 16ms (compile: 9ms, render: 6ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 18ms (compile: 10ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 18ms (compile: 11ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 10ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 19ms (compile: 11ms, render: 8ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 16ms (compile: 9ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 16ms (compile: 8ms, render: 8ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 15ms (compile: 8ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 16ms (compile: 9ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 9ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 10ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 10ms, render: 8ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 15ms (compile: 8ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 16ms (compile: 8ms, render: 8ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 18ms (compile: 8ms, render: 9ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 22ms (compile: 11ms, render: 11ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 11ms, render: 6ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 10ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 20ms (compile: 11ms, render: 9ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 18ms (compile: 10ms, render: 8ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 20ms (compile: 11ms, render: 10ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 25ms (compile: 15ms, render: 11ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 23ms (compile: 13ms, render: 10ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 22ms (compile: 12ms, render: 9ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 22ms (compile: 13ms, render: 10ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 18ms (compile: 11ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (compile: 10ms, render: 7ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 20ms (compile: 12ms, render: 9ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 16ms (compile: 8ms, render: 8ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 19ms (compile: 8ms, render: 11ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 21ms (compile: 11ms, render: 11ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 29ms (compile: 15ms, render: 14ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 30ms (compile: 14ms, render: 16ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 26ms (compile: 15ms, render: 12ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 25ms (compile: 12ms, render: 14ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 20ms (compile: 11ms, render: 9ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 20ms (compile: 10ms, render: 9ms)
+筧ｯ ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts:2:1
+Module not found: Can't resolve 'fs'
+  1 | // JSON File-based Database Manager
+> 2 | import { promises as fs } from 'fs';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import path from 'path';
+  4 |
+  5 | // 繝・・繧ｿ繝・ぅ繝ｬ繧ｯ繝医Μ縺ｮ繝代せ
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component Browser]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/database.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/lib/auth-service.ts [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Client Component SSR]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/contexts/AuthContext.tsx [Server Component]
+    ./Desktop/program code/SEKAI NO OWARI Data Base/src/app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 23ms (compile: 9ms, render: 14ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+笞 Fast Refresh had to perform a full reload when ./Desktop/program code/SEKAI NO OWARI Data Base/node_modules/next/dist/shared/lib/router/router.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+笨・Compiled in 157ms
+ GET / 200 in 660ms (compile: 351ms, render: 309ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 193ms (compile: 29ms, render: 164ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 163ms (compile: 5ms, render: 159ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 165ms (compile: 3ms, render: 162ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 165ms (compile: 5ms, render: 160ms)
+ GET / 200 in 125ms (compile: 4ms, render: 120ms)
+ GET / 200 in 91ms (compile: 7ms, render: 84ms)
+ GET / 200 in 49ms (compile: 3ms, render: 45ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 276ms (compile: 122ms, render: 154ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 160ms (compile: 4ms, render: 156ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 147ms (compile: 4ms, render: 143ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 153ms (compile: 4ms, render: 148ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 153ms (compile: 5ms, render: 148ms)
+ GET / 200 in 125ms (compile: 4ms, render: 120ms)
+ GET / 200 in 91ms (compile: 3ms, render: 88ms)
+ GET / 200 in 53ms (compile: 6ms, render: 47ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 262ms (compile: 133ms, render: 129ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 144ms (compile: 3ms, render: 141ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 165ms (compile: 3ms, render: 162ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 216ms (compile: 7ms, render: 209ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 234ms (compile: 3ms, render: 230ms)
+ GET / 200 in 197ms (compile: 7ms, render: 191ms)
+ GET / 200 in 149ms (compile: 6ms, render: 143ms)
+ GET / 200 in 68ms (compile: 6ms, render: 62ms)
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+笞 Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 214ms (compile: 115ms, render: 99ms)
+ GET / 200 in 75ms (compile: 3ms, render: 72ms)
+ GET / 200 in 43ms (compile: 4ms, render: 39ms)

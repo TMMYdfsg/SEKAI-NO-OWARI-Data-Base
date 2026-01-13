@@ -1,7 +1,16 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
-import { authService, AppUser } from "@/lib/auth-service";
+
+export interface AppUser {
+    id: string;
+    name: string;
+    email?: string;
+    isAnonymous: boolean;
+    avatarUrl?: string;
+    createdAt: string;
+    password?: string;
+}
 
 interface AuthContextType {
     user: AppUser | null;
@@ -12,6 +21,7 @@ interface AuthContextType {
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
+const SESSION_KEY = 'app_session_user_id';
 
 export function useAuth() {
     return useContext(AuthContext);
@@ -22,11 +32,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // 初期化時にセッション復元
         const initAuth = async () => {
+            if (typeof window === 'undefined') return;
+
+            const userId = localStorage.getItem(SESSION_KEY);
+            if (!userId) {
+                setLoading(false);
+                return;
+            }
+
             try {
-                const currentUser = await authService.getCurrentUser();
-                setUser(currentUser);
+                const response = await fetch(`/api/auth?userId=${userId}`);
+                const data = await response.json();
+                if (data.user) {
+                    setUser(data.user);
+                } else {
+                    localStorage.removeItem(SESSION_KEY);
+                }
             } catch (error) {
                 console.error("Session restore failed", error);
             } finally {
@@ -37,7 +59,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }, []);
 
     const signInWithGoogle = async () => {
-        // 現在はローカル版のため、疑似的にゲストログインを使用するか、実装予定としてアラートを出す
         console.warn("Google Sign-In is not supported in local mode. Falling back to guest login.");
         await signInGuest();
     };
@@ -45,8 +66,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const signInGuest = async () => {
         try {
             setLoading(true);
-            const newUser = await authService.loginAsGuest();
-            setUser(newUser);
+            const response = await fetch('/api/auth', { method: 'POST' });
+            const data = await response.json();
+
+            if (data.user) {
+                setUser(data.user);
+                localStorage.setItem(SESSION_KEY, data.user.id);
+            }
         } catch (error) {
             console.error("Error signing in as guest", error);
             throw error;
@@ -57,7 +83,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const logout = async () => {
         try {
-            await authService.logout();
+            localStorage.removeItem(SESSION_KEY);
             setUser(null);
         } catch (error) {
             console.error("Error signing out", error);
@@ -75,7 +101,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     return (
         <AuthContext.Provider value={value}>
-            {!loading && children}
+            {children}
         </AuthContext.Provider>
     );
 }
