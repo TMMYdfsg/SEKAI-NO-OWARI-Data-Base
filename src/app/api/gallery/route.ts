@@ -43,7 +43,7 @@ function scanGalleryFolders(): GalleryFolder[] {
                 if (imageCount > 0) {
                     folders.push({
                         name: entry.name,
-                        path: entry.name,
+                        path: entry.name, // フォルダ名はそのままpathとして使用（トップレベルなので）
                         imageCount
                     });
                 }
@@ -70,7 +70,7 @@ function getImagesInFolder(folderName: string): GalleryImage[] {
             if (IMAGE_EXTENSIONS.includes(path.extname(file).toLowerCase())) {
                 images.push({
                     name: file,
-                    path: path.join(folderName, file),
+                    path: path.join(folderName, file).split(path.sep).join('/'), // Windowsパス対策: バックスラッシュをスラッシュに置換
                     folder: folderName
                 });
             }
@@ -90,7 +90,9 @@ export async function GET(request: NextRequest) {
     try {
         // Return image file
         if (file) {
-            const filePath = path.join(GALLERY_ROOT, file);
+            // URLフレンドリーなパス（スラッシュ区切り）をOS標準パスに変換
+            const normalizedFile = file.split('/').join(path.sep);
+            const filePath = path.join(GALLERY_ROOT, normalizedFile);
 
             // Security check - ensure path is within GALLERY_ROOT
             if (!filePath.startsWith(GALLERY_ROOT)) {
