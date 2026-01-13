@@ -120,11 +120,20 @@ export default function Home() {
       topSong
     });
 
-    // Load widget settings
+    // Load widget settings and merge with new defaults
     const saved = localStorage.getItem(WIDGETS_KEY);
     if (saved) {
       try {
-        setWidgets(JSON.parse(saved));
+        const savedWidgets: WidgetConfig[] = JSON.parse(saved);
+        // Merge: keep saved settings, add any new widgets from defaults
+        const savedIds = new Set(savedWidgets.map(w => w.id));
+        const mergedWidgets = [
+          ...savedWidgets,
+          ...defaultWidgets.filter(w => !savedIds.has(w.id))
+        ];
+        setWidgets(mergedWidgets);
+        // Save merged back to localStorage
+        localStorage.setItem(WIDGETS_KEY, JSON.stringify(mergedWidgets));
       } catch (e) {
         console.error("Failed to load widget settings", e);
       }

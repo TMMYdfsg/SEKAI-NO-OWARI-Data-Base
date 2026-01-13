@@ -109,8 +109,25 @@ export default function GlobalPlayer() {
         const savedLyricsJson = localStorage.getItem(SONGS_LYRICS_KEY);
         if (savedLyricsJson) {
             try {
-                const parsedLyrics = JSON.parse(savedLyricsJson);
-                const trackLyrics = parsedLyrics[currentTrack.path];
+                const parsedLyrics: Record<string, string> = JSON.parse(savedLyricsJson);
+
+                // First try exact path match
+                let trackLyrics = parsedLyrics[currentTrack.path];
+
+                // If not found and it's a LIVE/Rare track, try title-based fallback
+                if (!trackLyrics && (currentTrack.category?.includes("LIVE") || currentTrack.category === "Rare")) {
+                    const trackTitle = formatTrackName(currentTrack.name).toLowerCase();
+
+                    // Search for any entry that contains the same title
+                    for (const [path, lyrics] of Object.entries(parsedLyrics)) {
+                        const entryTitle = path.split(/[/\\]/).pop()?.replace(/\.[^/.]+$/, "").toLowerCase() || "";
+                        if (entryTitle.includes(trackTitle) || trackTitle.includes(entryTitle)) {
+                            trackLyrics = lyrics;
+                            break;
+                        }
+                    }
+                }
+
                 setLyrics(trackLyrics || "");
             } catch (e) {
                 console.error("Failed to load lyrics", e);

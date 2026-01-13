@@ -35,14 +35,5 @@
     "acquisitionDate": "",
     "description": "",
     "price": 100
-  },
-  {
-    "name": "API Test Item",
-    "type": "Goods",
-    "description": "Test via API",
-    "price": 999,
-    "id": "goods-1768231404822-ogot963",
-    "createdAt": "2026-01-12T15:23:24.822Z",
-    "updatedAt": "2026-01-12T15:23:24.823Z"
   }
 ]

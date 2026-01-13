@@ -31,7 +31,16 @@ export default function GoodsPage() {
         fetch("/api/db/goods")
             .then((res) => res.json())
             .then((data) => {
-                setGoods(Array.isArray(data) ? data : []);
+                // データ検証とデフォルト値の設定
+                const validatedData = Array.isArray(data) ? data.map(item => ({
+                    ...item,
+                    createdAt: item.createdAt || new Date().toISOString(),
+                    updatedAt: item.updatedAt || new Date().toISOString(),
+                    isFavorite: item.isFavorite ?? false,
+                    tags: item.tags || [],
+                    imagePaths: item.imagePaths || []
+                })) : [];
+                setGoods(validatedData);
                 setLoading(false);
             })
             .catch((err) => {
@@ -53,8 +62,14 @@ export default function GoodsPage() {
     const filteredGoods = useMemo(() => {
         let result = goods.filter(g => {
             if (filterType !== "All" && g.type !== filterType) return false;
+            // query検索
             if (searchQuery && !g.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
-            if (selectedTags.length > 0 && !selectedTags.some(tag => g.tags.includes(tag))) return false;
+
+            // タグフィルタ（tagsが存在しない場合に対応）
+            if (selectedTags.length > 0) {
+                const itemTags = Array.isArray(g.tags) ? g.tags : [];
+                if (!selectedTags.some(tag => itemTags.includes(tag))) return false;
+            }
             return true;
         });
 
@@ -67,13 +82,21 @@ export default function GoodsPage() {
                 result.sort((a, b) => b.name.localeCompare(a.name, 'ja'));
                 break;
             case 'date-desc':
-                result.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+                result.sort((a, b) => {
+                    const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+                    const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+                    return dateB - dateA;
+                });
                 break;
             case 'date-asc':
-                result.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+                result.sort((a, b) => {
+                    const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+                    const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+                    return dateA - dateB;
+                });
                 break;
             case 'favorite':
-                result.sort((a, b) => (b.isFavorite ? 1 : 0) - (a.isFavorite ? 1 : 0));
+                result.sort((a, b) => ((b.isFavorite ?? false) ? 1 : 0) - ((a.isFavorite ?? false) ? 1 : 0));
                 break;
         }
 

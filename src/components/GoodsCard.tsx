@@ -22,8 +22,16 @@ const goodsTypeColors: Record<string, string> = {
 };
 
 export default function GoodsCard({ goods, onClick }: GoodsCardProps) {
+    // データの安全性を確認
+    if (!goods) return null;
+
+    const safeTags = Array.isArray(goods.tags) ? goods.tags : [];
+    const safeImagePaths = Array.isArray(goods.imagePaths) ? goods.imagePaths : [];
+
+    // typeColorの取得には安全なgoods.typeを使用（未定義の場合はOther）
     const typeColor = goodsTypeColors[goods.type] || goodsTypeColors['Other'];
-    const primaryImage = goods.imagePaths[0];
+    const primaryImage = safeImagePaths[0];
+
 
     return (
         <div
@@ -81,16 +89,16 @@ export default function GoodsCard({ goods, onClick }: GoodsCardProps) {
                         {goods.description}
                     </p>
                 )}
-                {goods.tags.length > 0 && (
+                {safeTags.length > 0 && (
                     <div className="flex flex-wrap gap-1">
-                        {goods.tags.slice(0, 3).map((tag) => (
+                        {safeTags.slice(0, 3).map((tag) => (
                             <span key={tag} className="text-xs text-primary/80">
                                 #{tag}
                             </span>
                         ))}
-                        {goods.tags.length > 3 && (
+                        {safeTags.length > 3 && (
                             <span className="text-xs text-muted-foreground">
-                                +{goods.tags.length - 3}
+                                +{safeTags.length - 3}
                             </span>
                         )}
                     </div>
